@@ -1,0 +1,42 @@
+.page-header
+  %h1=t('.title')
+  
+= simple_form_for @search, url: admin_pages_path, method: :get do |f|
+  %table.table
+    %thead
+      %tr
+        %td
+          = f.input_field :title_cont, placeholder: Page.human_attribute_name(:title), label: false, required: false
+        %td
+          = f.input_field :slug_cont, placeholder: Page.human_attribute_name(:slug), label: false, required: false
+        %td
+          = f.input :state_in, collection: Page.state_machine.states.map { |s| [s.human_name, s.name] }, input_html: { data: { placeholder: Page.human_attribute_name(:state) }}, label: false, required: false
+        %td
+          = f.submit t(".search"), :class => 'btn btn-primary' 
+
+= link_to t('.new'), new_admin_page_path, :class => 'btn btn-primary'
+    
+= paginate @pages
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link(@search, :id, Page.human_attribute_name(:id))
+      %th= sort_link(@search, :slug, Page.human_attribute_name(:slug))
+      %th= sort_link(@search, :title, Page.human_attribute_name(:title))
+      %th= sort_link(@search, :state, Page.human_attribute_name(:state))
+      %th= sort_link(@search, :created_at, Page.human_attribute_name(:created_at))
+      %th= t(".actions")
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= link_to page.id, admin_page_path(page)
+        %td= page.slug
+        %td= page.title
+        %td= page.human_state_name
+        %td= l page.created_at
+        %td
+          = link_to t('.edit'), edit_admin_page_path(page), class: 'btn btn-mini'
+          = link_to t('.destroy'), admin_page_path(page), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
+= paginate @pages
+
+= link_to t('.new'), new_admin_page_path, class: 'btn btn-primary'

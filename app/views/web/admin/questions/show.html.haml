@@ -1,0 +1,15 @@
+%h1= t '.title'
+
+%h4= Question.human_attribute_name :full_name
+%p= @question.full_name
+
+%h4= Question.human_attribute_name :email
+%p= @question.email
+
+%h4= Question.human_attribute_name :phone
+%p= @question.phone
+
+%h4= Question.human_attribute_name :content
+%p= @question.content
+
+= link_to t('.back'), admin_questions_path, class: 'btn btn-primary'

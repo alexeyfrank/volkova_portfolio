@@ -1,0 +1,58 @@
+ru:
+  activerecord:
+    models:
+      user: 'пользователя'
+      page: 'страницу'
+      manager: 'менеджера'
+      client: 'клиента'
+    attributes:
+      user:
+        email: 'E-mail'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        state: 'Состояние'
+        state_event: 'Действие'
+        created_at: 'Дата создания'
+      page:
+        state_event: 'Действие'
+        title: 'Название'
+        slug: 'Ссылка'
+        content: 'Содержимое'
+        state: 'Состояние'
+        created_at: 'Дата создания'
+      manager:
+        state_event: 'Действие'
+        full_name: 'ФИО'
+        email: 'E-mail'
+        phone: 'Телефон'
+        photo: 'Фото'
+        region: 'Регион работы'
+        state: 'Состояние'
+        created_at: 'Дата создания'
+      question:
+        full_name: 'ФИО'
+        email: 'E-mail'
+        phone: 'Телефон'
+        content: 'Текст сообщения'
+        created_at: 'Дата создания'
+      client:
+        name: 'Название'
+        site: 'Ссылка на сайт'
+        logo: 'Логотип'
+        state: 'Состояние'
+        state_event: 'Действие'
+        created_at: 'Дата создания'
+      client/image:
+        title: 'Название'
+        image: 'Логотип'
+        created_at: 'Дата создания'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email: 'Введен некорректный E-mail'
+        question:
+          attributes:
+            email:
+              email: 'Введен некорректный E-mail'

@@ -1,0 +1,6 @@
+= simple_form_for(@type, url: session_path, wrapper: :sign_in, html: { class: 'form-signin' }) do |f|
+  %h2.form-signin-heading= t '.title'
+
+  = f.input :email, placeholder: Web::UserSignInType.human_attribute_name(:email)
+  = f.input :password, placeholder: Web::UserSignInType.human_attribute_name(:password)
+  = f.submit t('.submit'), class: 'btn btn-primary btn-large'

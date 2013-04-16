@@ -1,0 +1,10 @@
+---
+en:
+  web:
+    admin:
+      users:
+        index:
+          title: ''
+          search: ''
+          new: ''
+          actions: ''

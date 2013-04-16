@@ -1,0 +1,38 @@
+.page-header
+  %h1=t('.title')
+  
+= simple_form_for @search, url: admin_users_path, method: :get do |f|  
+  %table.table
+    %thead
+      %tr
+        %td
+          = f.input_field :email_cont, placeholder: User.human_attribute_name(:email), label: false, required: false
+        %td
+          = f.input :state_in, collection: User.state_machine.states.map { |s| [s.human_name, s.name] }, input_html: { data: { placeholder: User.human_attribute_name(:state) }}, label: false, required: false
+        %td
+          = f.submit t(".search"), :class => 'btn btn-primary' 
+
+= link_to t('.new'), new_admin_user_path, :class => 'btn btn-primary'
+    
+= paginate @users
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link(@search, :id, User.human_attribute_name(:id))
+      %th= sort_link(@search, :email, User.human_attribute_name(:email))
+      %th= sort_link(@search, :state, User.human_attribute_name(:state))
+      %th= sort_link(@search, :created_at, User.human_attribute_name(:created_at))
+      %th= t(".actions")
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.id, admin_user_path(user)
+        %td= user.email
+        %td= user.human_state_name
+        %td= l user.created_at
+        %td
+          = link_to t('.edit'), edit_admin_user_path(user), class: 'btn btn-mini'
+          = link_to t('.destroy'), admin_user_path(user), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
+= paginate @users
+
+= link_to t('.new'), new_admin_user_path, class: 'btn btn-primary'

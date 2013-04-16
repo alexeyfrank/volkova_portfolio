@@ -1,0 +1,7 @@
+= simple_form_for [:admin, @user] do |f|
+  = f.input :state_event, as: :state_event
+  = f.input :email
+  = f.input :password
+  = f.input :password_confirmation
+
+  =f.submit

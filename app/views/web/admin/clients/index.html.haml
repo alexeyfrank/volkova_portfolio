@@ -1,0 +1,38 @@
+.page-header
+  %h1=t('.title')
+  
+= simple_form_for @search, url: admin_clients_path, method: :get do |f|
+  %table.table
+    %thead
+      %tr
+        %td
+          = f.input_field :name_cont, placeholder: Client.human_attribute_name(:name), label: false, required: false
+        %td
+          = f.input :state_in, collection: Client.state_machine.states.map { |s| [s.human_name, s.name] }, input_html: { data: { placeholder: Client.human_attribute_name(:state) }}, label: false, required: false
+        %td
+          = f.submit t(".search"), :class => 'btn btn-primary' 
+
+= link_to t('.new'), new_admin_client_path, :class => 'btn btn-primary'
+    
+= paginate @clients
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link(@search, :id, Client.human_attribute_name(:id))
+      %th= sort_link(@search, :name, Client.human_attribute_name(:name))
+      %th= sort_link(@search, :state, Client.human_attribute_name(:state))
+      %th= sort_link(@search, :created_at, Client.human_attribute_name(:created_at))
+      %th= t(".actions")
+  %tbody
+    - @clients.each do |client|
+      %tr
+        %td= link_to client.id, edit_admin_client_path(client)
+        %td= client.name
+        %td= client.human_state_name
+        %td= l client.created_at
+        %td
+          = link_to t('.edit'), edit_admin_client_path(client), class: 'btn btn-mini'
+          = link_to t('.destroy'), admin_client_path(client), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
+= paginate @clients
+
+= link_to t('.new'), new_admin_client_path, class: 'btn btn-primary'

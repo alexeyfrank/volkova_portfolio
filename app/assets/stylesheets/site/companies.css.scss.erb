@@ -1,0 +1,98 @@
+.companies {
+    min-height: 162px;
+
+    h2 {
+        margin-top: 0;
+        border-bottom: 1px solid #8b1919;
+        font-size: 22px;
+        color:  #8b1919;
+    }
+
+    .carousel-control {
+        top: 70px;
+    }
+
+    .span3 {
+        margin-left: 24px;
+    }
+
+    .company-link {
+        margin: 0 auto 10px auto;
+        height: 159px;
+        width: 194px;
+        display: block;
+        background-image: url(<%= asset_path('company-bg-new.png') %>);
+        position: relative;
+
+        &:hover {
+          background-image: url(<%= asset_path('company-bg-new-active.png') %>);
+        }
+
+        i {
+            display: block;
+            margin: auto;
+        }
+        .mdm-group {
+            background: url(<%= asset_path('companies/mdmgroup.png') %>) no-repeat;
+            position: absolute;
+            top: 45px;
+            left: 40px;
+            width: 116px;
+            height: 47px;
+        }
+
+        .cryspi {
+            background: url(<%= asset_path('companies/cryspi.png') %>) no-repeat;
+            position: absolute;
+            top: 45px;
+            left: 22px;
+            width: 153px;
+            height: 42px;
+        }
+
+        .indexeventus {
+            background: url(<%= asset_path('companies/indexiventus.png') %>) no-repeat;
+            position: absolute;
+            top: 45px;
+            left: 20px;
+            width: 165px;
+            height: 35px;
+        }
+
+        .vitrina {
+            background: url(<%= asset_path('companies/vitrina.png') %>) no-repeat;
+            position: absolute;
+            top: 35px;
+            left: 70px;
+            width: 65px;
+            height: 63px;
+        }
+
+        .ozm {
+            background: url(<%= asset_path('companies/ozm.png') %>) no-repeat;
+            position: absolute;
+            top: 35px;
+            left: 5px;
+            width: 183px;
+            height: 61px;
+        }
+
+        .rus {
+            background: url(<%= asset_path('companies/rus.png') %>) no-repeat;
+            position: absolute;
+            top: 35px;
+            left: 30px;
+            width: 142px;
+            height: 65px;
+        }
+
+        .shols {
+            background: url(<%= asset_path('companies/shols.png') %>) no-repeat;
+            position: absolute;
+            top: 35px;
+            left: 5px;
+            width: 186px;
+            height: 63px;
+        }
+    }
+}

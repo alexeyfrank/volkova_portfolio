@@ -1,0 +1,10 @@
+%h3 Форма обратной связи
+%h4 Оставьте нам сообщение и мы свяжемся с вами!
+= simple_form_for @question, wrapper: :question_form do |f|
+  = f.input :full_name, placeholder: Question.human_attribute_name(:full_name), input_html: { class: 'span5' }
+  = f.input :email, placeholder: Question.human_attribute_name(:email), input_html: { class: 'span5' }
+  = f.input :phone, placeholder: Question.human_attribute_name(:phone), input_html: { class: 'span5' }
+
+  = f.input :content, placeholder: Question.human_attribute_name(:content), input_html: { class: 'span7' }
+
+  = f.submit 'Отправить', class: 'btn btn-large btn-primary'

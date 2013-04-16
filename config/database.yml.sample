@@ -1,0 +1,22 @@
+common: &COMMON
+  adapter: postgresql
+  encoding: unicode
+  pool: 10
+
+development:
+  <<: *COMMON
+  database: volkova_portfolio_development
+  username: postgres
+  password: root
+
+test:
+  <<: *COMMON
+  database: volkova_portfolio_test
+  username: postgres
+  password: root
+
+production:
+  <<: *COMMON
+  database: volkova_portfolio_production
+  username: postgres
+  password: root

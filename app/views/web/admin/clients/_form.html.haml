@@ -1,0 +1,15 @@
+= simple_form_for [:admin, @client] do |f|
+  = f.input :state_event, as: :state_event
+  = f.input :name
+  = f.input :site
+  = f.input :logo, as: :image_preview
+
+  %h4 Фотографии
+  #items
+    = f.simple_fields_for :images do |item|
+      = render 'image_fields', f: item
+
+  = link_to_add_association 'Добавить фотографию', f, :images, class: 'btn btn-info',
+     data: { association_insertion_node: '#items', association_insertion_method: 'append' }
+
+  = f.submit class: 'btn btn-primary'

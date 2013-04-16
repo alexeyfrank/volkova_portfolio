@@ -1,0 +1,121 @@
+.page-header
+  %h1 Контакты
+
+.span6
+  .managers
+    %h3 Наши менеджеры
+    -#- @managers.each do |m|
+    -#  .manager
+    -#    .row
+    -#      .photo.span2= image_tag m.photo.url
+    -#      .span5
+    -#        %h4.full_name= m.full_name
+    -#        .contacts
+    -#          %p
+    -#            %strong Телефон:
+    -#            #{m.phone}
+    -#          %p
+    -#            %strong E-mail:
+    -#            #{m.email}
+    -#          %p
+    -#            %strong Регион работы:
+    -#            #{m.region}
+
+    .manager
+      .row
+        .photo.span2= image_tag asset_path('managers/shemyakin.png')
+        .span4
+          %h4.full_name Шемякин Сергей
+          %p
+            %strong Региональный менеджер
+          .contacts
+            %p
+              %strong Телефоны:
+              %br
+              8 8422 79 45 93
+              %br
+              +7 937 876 05 03
+            %p
+              %strong E-mail:
+              shemyakin.mdm@yandex.ru
+            %p
+              %strong WWW:
+              =link_to 'mdmstandart.ru', 'http://mdmstandart.ru/'
+    .manager
+      .row
+        .photo.span2= image_tag asset_path('managers/zaharichev.png')
+        .span4
+          %h4.full_name Захарычев Алексей
+          %p
+            %strong Региональный менеджер
+          .contacts
+            %p
+              %strong Телефоны:
+              %br
+              8 8422 79 45 93
+              %br
+              +7 937 876 05 04
+            %p
+              %strong E-mail:
+              zaharichev.mdm@yandex.ru
+            %p
+              %strong WWW:
+              =link_to 'mdmstandart.ru', 'http://mdmstandart.ru/'
+    .manager
+      .row
+        .photo.span2= image_tag asset_path('managers/zvakina.png')
+        .span4
+          %h4.full_name Жвакина Александра
+          %p
+            %strong Региональный менеджер
+          .contacts
+            %p
+              %strong Телефоны:
+              %br
+              8 8422 79 45 93
+              %br
+              +7 917 056 76 24
+            %p
+              %strong E-mail:
+              zvakina.mdm@yandex.ru
+            %p
+              %strong WWW:
+              =link_to 'mdmstandart.ru', 'http://mdmstandart.ru/'
+    .manager
+      .row
+        .photo.span2= image_tag asset_path('managers/rusakova.png')
+        .span4
+          %h4.full_name Русакова Ольга
+          %p
+            %strong Персональный менеджер
+          .contacts
+            %p
+              %strong Телефоны:
+              %br
+              8 8422 79 45 97
+              %br
+              +7 902 128 06 91
+            %p
+              %strong E-mail:
+              rusakova.mdm@yandex.ru
+            %p
+              %strong WWW:
+              =link_to 'mdmstandart.ru', 'http://mdmstandart.ru/'
+
+.span5
+  .contacts
+    %h3 О нас
+    %p
+      %strong Адрес:
+      432063, Ульяновск, ул. Ленина, д. 17/118
+    %p
+      %strong Телефон:
+      (8422) 79-45-97
+    %p
+      %strong Электронная почта:
+      info@mdmstandart.ru
+    %p
+      %strong Время работы:
+      9.00 — 18.00 (по рабочим дням)
+
+    = render 'map'

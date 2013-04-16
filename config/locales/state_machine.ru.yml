@@ -1,0 +1,29 @@
+ru:
+  activerecord:
+    state_machines:
+      user:
+        state:
+          states:
+            active: 'Активен'
+            inactive: 'Неактивен'
+          events:
+            activate: 'Активировать'
+            deactivate: 'Деактивировать'
+      manager:
+        state:
+          states:
+            active: 'Активен'
+            inactive: 'Неактивен'
+          events:
+            activate: 'Активировать'
+            deactivate: 'Деактивировать'
+      page:
+        state:
+          states:
+            active: 'Активен'
+            inactive: 'Неактивен'
+            trashed: 'В корзине'
+          events:
+            activate: 'Активировать'
+            deactivate: 'Деактивировать'
+            trash: 'В корзину'

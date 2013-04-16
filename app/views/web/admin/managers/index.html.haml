@@ -1,0 +1,46 @@
+.page-header
+  %h1=t('.title')
+  
+= simple_form_for @search, url: admin_managers_path, method: :get do |f|
+  %table.table
+    %thead
+      %tr
+        %td
+          = f.input_field :full_name_cont, placeholder: Manager.human_attribute_name(:full_name), label: false, required: false
+        %td
+          = f.input_field :email_cont, placeholder: Manager.human_attribute_name(:email), label: false, required: false
+        %td
+          = f.input_field :phone_cont, placeholder: Manager.human_attribute_name(:phone), label: false, required: false
+        %td
+          = f.input :state_in, collection: Manager.state_machine.states.map { |s| [s.human_name, s.name] }, input_html: { data: { placeholder: Manager.human_attribute_name(:state) }}, label: false, required: false
+        %td
+          = f.submit t(".search"), :class => 'btn btn-primary' 
+
+= link_to t('.new'), new_admin_manager_path, :class => 'btn btn-primary'
+    
+= paginate @managers
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link(@search, :id, Manager.human_attribute_name(:id))
+      %th= sort_link(@search, :full_name, Manager.human_attribute_name(:full_name))
+      %th= sort_link(@search, :email, Manager.human_attribute_name(:email))
+      %th= sort_link(@search, :phone, Manager.human_attribute_name(:phone))
+      %th= sort_link(@search, :state, Manager.human_attribute_name(:state))
+      %th= sort_link(@search, :created_at, Manager.human_attribute_name(:created_at))
+      %th= t(".actions")
+  %tbody
+    - @managers.each do |manager|
+      %tr
+        %td= link_to manager.id, edit_admin_manager_path(manager)
+        %td= manager.full_name
+        %td= manager.email
+        %td= manager.phone
+        %td= manager.human_state_name
+        %td= l manager.created_at
+        %td
+          = link_to t('.edit'), edit_admin_manager_path(manager), class: 'btn btn-mini'
+          = link_to t('.destroy'), admin_manager_path(manager), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
+= paginate @managers
+
+= link_to t('.new'), new_admin_manager_path, class: 'btn btn-primary'

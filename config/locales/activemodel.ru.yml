@@ -1,0 +1,10 @@
+ru:
+  activemodel:
+    errors:
+      models:
+        web/user_sign_in_type:
+          attributes:
+            email:
+              email: 'Введите корректный E-mail'
+              user_or_password_invalid: 'E-mail и/или пароль не верны'
+              user_inactive: 'Пользователь заблокирован'

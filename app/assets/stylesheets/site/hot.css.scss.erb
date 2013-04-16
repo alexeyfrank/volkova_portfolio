@@ -1,0 +1,65 @@
+.hot {
+    h3 {
+        color:  #980202;
+        font-size: 18px;
+        border-bottom: 1px solid #980202;
+    }
+
+    .items {
+
+        .item {
+            position: relative;
+            min-height: 180px;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                &.ecollin {
+                    width: 110px;
+                    height: 170px;
+                }
+
+                &.korzinka {
+                    width: 180px;
+                    height: 170px;
+                }
+            }
+            h4 {
+                color:  #980202;
+                font-size: 14px;
+                left: 150px;
+                position: absolute;
+            }
+
+            .article {
+                position: absolute;
+                right: 0;
+                bottom: 30px;
+                color: gray;
+            }
+
+            .cost {
+                position: absolute;
+                right: 0;
+                color:  #980202;
+                font-size: 18px;
+                font-weight: bold;
+                bottom: 0;
+            }
+
+            .sale {
+                width: 84px;
+                height: 84px;
+                position: absolute;
+                top: 70px;
+                left: 90px;
+            }
+
+            .sale35 {
+                background: url(<%= asset_path('sales/sale35.png') %>);
+            }
+        }
+    }
+}

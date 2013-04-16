@@ -1,0 +1,14 @@
+.page-header
+  %h1 Наши клиенты
+
+.clients.row
+  - @clients.each do |client|
+    .span3
+      .client
+        - if client.site.present?
+          = link_to client.site do
+            = image_tag client.logo.url
+        - else
+          = image_tag client.logo.url
+        .clearfix
+        = link_to client, client

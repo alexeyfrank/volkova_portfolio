@@ -1,0 +1,24 @@
+.page-header
+  %h1= @client.name
+
+.gallery(data-toggle="modal-gallery" data-target="#modal-gallery")
+  - @client.images.each do |image|
+    = link_to image.image.url, title: image.title, class: 'gallery-item', data: { gallery: 'gallery' } do
+      = image_tag image.image.thumb.url
+
+
+
+
+#modal-gallery.modal.modal-gallery.hide.fade{:tabindex => "-1"}
+  .modal-header
+    %a.close{"data-dismiss" => "modal"} ×
+    %h3.modal-title
+  .modal-body
+    .modal-image
+  .modal-footer
+    %a.btn.btn-primary.modal-next
+      Следующее
+      %i.icon-arrow-right.icon-white
+    %a.btn.btn-info.modal-prev
+      %i.icon-arrow-left.icon-white
+        Предыдущее

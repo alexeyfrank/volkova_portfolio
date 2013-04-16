@@ -1,0 +1,8 @@
+.nested-fields.well
+  .row
+    .span3
+      = f.input :title, label: false, input_html: { placeholder: Client::Image.human_attribute_name(:title) }
+    .span3
+      = f.input :image, as: :image_preview, input_html: { placeholder: Client::Image.human_attribute_name(:image) }
+    .span3
+      = link_to_remove_association "Удалить фотографию", f, class: 'btn btn-danger'

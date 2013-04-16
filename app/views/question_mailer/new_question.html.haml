@@ -1,0 +1,12 @@
+%h1 На сайте #{link_to 'mdmstandart.ru', "http://mdmstandart.ru" } был оставлен новый вопрос!
+
+%h3 ФИО
+%p= @question.full_name
+%h3 E-mail
+%p= @question.email
+%h3 Телефон
+%p= @question.phone
+%h3 Дата создания
+%p= l @question.created_at
+%h3 Сообщеие
+%p= @question.content
