@@ -5,6 +5,8 @@ gem 'pg'
 gem 'unicorn'
 
 gem 'haml-rails'
+gem 'slim'
+gem 'autoprefixer-rails'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'simple_form'
