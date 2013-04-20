@@ -16,15 +16,14 @@ body
   color: $main-text-color
   font-family: 'Conv_Bliss Pro ExtraLight'
   font-size: 14px
-
 .main-wrap
   width: 660px
   margin: 0 auto
   padding: 58px 0 60px
-
 .main
   background-color: $main-bg-color
-  padding-top: 82px
+  padding: 82px 0 78px
+
 header
   width: $inner-width
   margin: 0 auto
@@ -37,6 +36,7 @@ header
       font-size: 32px
     .summary
       font-size: 16px
+
 .nav
   width: $inner-width
   margin: 0 auto 52px
@@ -44,14 +44,40 @@ header
   .nav-list
     margin: 0 auto
     text-align: center
-  .item
-    display: inline-block
-    .text
+    .item
       display: inline-block
-      padding: 16px 10px
-    &:first-child
       .text
-        padding-left: 0
-    &:last-child
+        display: inline-block
+        padding: 16px 10px
+      &:first-child
+        .text
+          padding-left: 0
+      &:last-child
+        .text
+          padding-right: 0
+      a
+        text-decoration: none
+        .text
+          text-decoration: none
+          transition: all 1s ease
+        &:hover
+          .text
+            text-decoration: underline
+  &.nav-list-i18n
+    margin-bottom: 0
+    .nav-list
+      border-top: 1px solid $main-border-color
       .text
-        padding-right: 0
+        padding-left: 6px
+        padding-right: 6px
+      a
+        text-decoration: none
+        .text
+          text-decoration: underline
+          transition: all 1s ease
+        &:hover
+          .text
+            text-decoration: none
+
+.content
+  margin-bottom: 56px
