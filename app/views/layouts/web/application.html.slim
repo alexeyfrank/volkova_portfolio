@@ -16,4 +16,9 @@ html
   body
     .main-wrap
       .main
-        h1 Tweet!
+        = render 'layouts/shared/web/header'
+
+        .content
+          = yield
+
+        = render 'layouts/shared/web/footer'
