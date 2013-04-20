@@ -14,4 +14,11 @@ html
     = stylesheet_link_tag "web/application", :media => "all"
 
   body
-    h1 Tweeeet!
+    .main-wrap
+      .main
+        = render 'layouts/shared/web/header'
+
+        .content
+          = yield
+
+        = render 'layouts/shared/web/footer'
