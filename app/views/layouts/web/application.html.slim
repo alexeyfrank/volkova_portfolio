@@ -21,4 +21,36 @@ html
         .content
           = yield
 
+          / form layout start
+          .row
+            .span
+              h1 Как приобрести фотографии
+              p
+                | Если вас заинтересовали работы Ольги Тупоноговой-Волковой, пожалуйста, заполните форму ниже и мы свяжемся с вами в самое ближайшее время.
+            .span
+              h1 Сотрудничество
+              p
+                | Если вы дизайнер и вам подумалось, что работы, увиденные на этом сайте, будут как нельзя лучше смотреться в ваших интерьерах - напишите нам на
+                br
+                a href="mailto:coworking@photoroom.ru" coworking@photoroom.ru
+          form.form action="#"
+            .row
+              label
+                input type="checkbox" checked="checked"
+                | Получить каталог с работами, описанием производства и подробными условиями покупки
+            .row
+              .span
+                label Как к вам обращаться
+                input type="text"
+              .span
+                label E-mail
+                input type="email"
+            .row
+              label Сообщение
+              textarea rows="20" cols="5"
+            .row.center
+              input type="submit" value="Отправить"
+
+          / form layout end
+
         = render 'layouts/shared/web/footer'
