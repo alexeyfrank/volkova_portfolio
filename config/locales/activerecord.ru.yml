@@ -5,6 +5,7 @@ ru:
       page: 'страницу'
       manager: 'менеджера'
       client: 'клиента'
+      project: 'проект'
     attributes:
       user:
         email: 'E-mail'
@@ -19,6 +20,14 @@ ru:
         slug: 'Ссылка'
         content: 'Содержимое'
         state: 'Состояние'
+        created_at: 'Дата создания'
+      project:
+        title: 'Название'
+        preview: 'Превью альбома'
+        created_at: 'Дата создания'
+      project/photo:
+        title: 'Название'
+        image: 'Изображение'
         created_at: 'Дата создания'
       manager:
         state_event: 'Действие'

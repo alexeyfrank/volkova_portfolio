@@ -1,0 +1,8 @@
+.container-fluid
+  .row-fluid
+    if flashSuccess
+      .alert.alert-success= flashSuccess
+    if flashError
+      .alert.alert-error= flashError
+    .span12
+      = outlet

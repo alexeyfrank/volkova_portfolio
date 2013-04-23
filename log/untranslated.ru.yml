@@ -1,3 +1,10 @@
 ---
 ru:
-  success: ''
+  web:
+    admin:
+      projects:
+        index:
+          title: ''
+          search: ''
+          new: ''
+          actions: ''

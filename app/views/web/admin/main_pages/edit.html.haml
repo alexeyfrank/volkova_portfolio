@@ -1,0 +1,14 @@
+%h1 Редактирование главной страницы
+
+= simple_form_for [:admin, @page] do |f|
+  .row
+    .span4
+      = f.input :first_photo, as: :image_preview
+    .span4
+      = f.input :second_photo, as: :image_preview
+    .span4
+      = f.input :third_photo, as: :image_preview
+
+  = f.input :content, as: :ckeditor
+
+  = f.submit

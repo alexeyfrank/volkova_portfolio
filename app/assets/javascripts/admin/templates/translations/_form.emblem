@@ -1,0 +1,15 @@
+form
+  .control-group
+    label= t "translation.key"
+    Ember.TextField valueBinding="key" class="span12"
+  .control-group
+    label= t "translation.value"
+    Ember.TextField valueBinding="value" class="span12"
+  .control-group
+    label= t "translation.locale"
+    Ember.Select valueBinding="locale" contentBinding="SiteAdmin.locales" class="span12" prompt="Выберите локаль"
+
+  .form-actions
+    a.btn.btn-success{action save} Сохранить
+    a.btn{action cancel} Отмена
+    a.btn.btn-danger{action destroy} Удалить
