@@ -1,0 +1,23 @@
+.span7
+  linkTo translations.new class="btn btn-primary" | Добавить перевод
+  button.btn.btn-info{action 'reloadTranslations'} Перезагрузить переводы
+  br
+  br
+
+  table.table.table-striped
+    tr
+      th Ключ
+      th Значение
+      th Локаль
+      th
+    each translation in controller
+      tr
+        td= translation.key
+        td= translation.value
+        td= translation.locale
+        td
+          .pull-right
+            linkTo 'translations.edit' translation class="btn btn-mini" | Редактировать
+.span4.well
+  linkTo 'translations' class="close" | &times;
+  = outlet

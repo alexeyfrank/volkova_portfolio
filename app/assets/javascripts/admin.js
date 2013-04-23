@@ -13,7 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require js-routes
 //= require cocoon
 //= require ckeditor/init
+//= require handlebars
+//= require ember
+//= require ember-data
 //= require_tree ./common
-//= require_tree ./admin
+//= require_self
+//= require ./admin/bootstrap
+SiteAdmin = Ember.Application.create({
+    rootElement: '#ember-app'
+});
+
+SiteAdmin.locales = ["ru", "en"];

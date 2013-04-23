@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407083103) do
+ActiveRecord::Schema.define(:version => 20130422181626) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(:version => 20130407083103) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "main_pages", :force => true do |t|
+    t.text     "content"
+    t.string   "first_photo"
+    t.string   "second_photo"
+    t.string   "third_photo"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "managers", :force => true do |t|
     t.string   "full_name"
     t.string   "photo"
@@ -66,6 +75,50 @@ ActiveRecord::Schema.define(:version => 20130407083103) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "photos", :force => true do |t|
+    t.string   "file"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "project_photo_translations", :force => true do |t|
+    t.integer  "project_photo_id"
+    t.string   "locale"
+    t.string   "title"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "project_photo_translations", ["locale"], :name => "index_project_photo_translations_on_locale"
+  add_index "project_photo_translations", ["project_photo_id"], :name => "index_project_photo_translations_on_project_photo_id"
+
+  create_table "project_photos", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "project_translations", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "locale"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "project_translations", ["locale"], :name => "index_project_translations_on_locale"
+  add_index "project_translations", ["project_id"], :name => "index_project_translations_on_project_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "title"
+    t.string   "preview"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.string   "full_name"
     t.string   "email"
@@ -74,6 +127,18 @@ ActiveRecord::Schema.define(:version => 20130407083103) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "translations", :force => true do |t|
+    t.string   "locale"
+    t.string   "key"
+    t.text     "value"
+    t.text     "interpolations"
+    t.boolean  "is_proc",        :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  add_index "translations", ["locale", "key"], :name => "index_translations_on_locale_and_key", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"
