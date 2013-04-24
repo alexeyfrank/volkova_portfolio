@@ -11,4 +11,10 @@ configus.pages.each do |value|
 end
 
 
-MainPage.create()
+if MainPage.count.zero?
+  MainPage.create
+end
+
+if Biography.count.zero?
+  Biography.create
+end

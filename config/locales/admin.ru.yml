@@ -47,6 +47,9 @@ ru:
           title: 'Создание проекта'
         edit:
           title: 'Редактирование проекта'
+      biographies:
+        edit:
+          title: 'Редактирование биографии'
       managers:
         index:
           title: 'Список менеджеров'

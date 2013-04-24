@@ -2,9 +2,7 @@
 ru:
   web:
     admin:
-      projects:
-        index:
+      biographies:
+        edit:
           title: ''
-          search: ''
-          new: ''
-          actions: ''
+  success: ''

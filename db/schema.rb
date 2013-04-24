@@ -11,7 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422181626) do
+ActiveRecord::Schema.define(:version => 20130423173820) do
+
+  create_table "biographies", :force => true do |t|
+    t.string   "photo"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "biography_review_translations", :force => true do |t|
+    t.integer  "biography_review_id"
+    t.string   "locale"
+    t.text     "content"
+    t.string   "author"
+    t.string   "position"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "biography_review_translations", ["biography_review_id"], :name => "index_biography_review_translations_on_biography_review_id"
+  add_index "biography_review_translations", ["locale"], :name => "index_biography_review_translations_on_locale"
+
+  create_table "biography_reviews", :force => true do |t|
+    t.text     "content"
+    t.string   "author"
+    t.string   "position"
+    t.integer  "biography_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "biography_translations", :force => true do |t|
+    t.integer  "biography_id"
+    t.string   "locale"
+    t.text     "content"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "biography_translations", ["biography_id"], :name => "index_biography_translations_on_biography_id"
+  add_index "biography_translations", ["locale"], :name => "index_biography_translations_on_locale"
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false

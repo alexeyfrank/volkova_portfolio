@@ -1,5 +1,9 @@
 VolkovaPortfolio::Application.routes.draw do
 
+  get "biographies/edit"
+
+  get "biographies/update"
+
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :api do
@@ -22,6 +26,7 @@ VolkovaPortfolio::Application.routes.draw do
       resources :translations
       resources :users
       resource :main_page, only: [:edit, :update]
+      resource :biography, only: [:edit, :update]
       resources :pages
       resources :questions
       resources :projects

@@ -6,6 +6,8 @@ ru:
       manager: 'менеджера'
       client: 'клиента'
       project: 'проект'
+      biography/review: 'отзыв'
+      biography: 'биографию'
     attributes:
       user:
         email: 'E-mail'
@@ -28,6 +30,15 @@ ru:
       project/photo:
         title: 'Название'
         image: 'Изображение'
+        created_at: 'Дата создания'
+      biography:
+        content: 'Биография'
+        photo: 'Фото'
+        created_at: 'Дата создания'
+      biography/review:
+        content: 'Отзыв'
+        author: 'Автор'
+        position: 'Должность'
         created_at: 'Дата создания'
       manager:
         state_event: 'Действие'
