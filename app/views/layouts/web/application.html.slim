@@ -29,6 +29,15 @@ html
           /    img src="http://placekitten.com/300/400" width=300 height=400
           / end of index page
 
+          / projects page
+          .projects-gallery-wrap
+            .projects-gallery
+              - for index in 1...5 do
+                .item
+                  .title Название проекта
+                  img src="http://placekitten.com/188/250" width=188 height=250
+          / end projects page
+
           / form layout start
           /.row
           /  .span
