@@ -1,0 +1,18 @@
+header
+  .motto
+    h1.name= t'site_name'
+    h4.summary= t 'site_sub_name'
+  nav.nav
+    ul.nav-list
+      li.item
+        = link_to projects_path do
+          span.text= t 'menu.projects'
+      li.item
+        = link_to photos_path do
+          span.text= t 'menu.photos_in_interier'
+      li.item
+        = link_to biography_path do
+          span.text= t 'menu.bio'
+      li.item
+        = link_to new_question_path do
+          span.text= t 'menu.contacts'

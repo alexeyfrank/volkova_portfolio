@@ -5,6 +5,8 @@ gem 'pg'
 gem 'unicorn'
 
 gem 'haml-rails'
+gem 'slim'
+gem 'autoprefixer-rails'
 gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'simple_form'
@@ -28,11 +30,19 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ckeditor'
 gem 'cocoon'
+gem 'ember-rails'
+gem 'emblem-rails'
+gem 'globalize3'
+#gem 'ember-validations', github: 'dockyard/ember-validations'
 
 gem 'jquery-rails'
 gem 'bcrypt-ruby' #, '~> 3.0.0'
 gem 'jbuilder'
 
+gem 'i18n-active_record',
+    git: 'git://github.com/svenfuchs/i18n-active_record.git',
+    branch: 'rails-3.2',
+    require: 'i18n/active_record'
 
 group :assets do
   gem 'sass-rails' #,   '~> 3.2.3'

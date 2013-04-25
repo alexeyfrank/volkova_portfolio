@@ -1,0 +1,9 @@
+footer
+  nav.nav.nav-list-i18n
+    ul.nav-list
+      li.item class="#{ 'active' if locale.eql?('ru') }"
+        = link_to url_for(locale: :ru) do
+          span.text рус
+      li.item class="#{ 'active' if locale.eql?('en') }"
+        = link_to url_for(locale: :en) do
+          span.text eng

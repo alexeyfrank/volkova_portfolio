@@ -5,6 +5,9 @@ ru:
       page: 'страницу'
       manager: 'менеджера'
       client: 'клиента'
+      project: 'проект'
+      biography/review: 'отзыв'
+      biography: 'биографию'
     attributes:
       user:
         email: 'E-mail'
@@ -20,6 +23,23 @@ ru:
         content: 'Содержимое'
         state: 'Состояние'
         created_at: 'Дата создания'
+      project:
+        title: 'Название'
+        preview: 'Превью альбома'
+        created_at: 'Дата создания'
+      project/photo:
+        title: 'Название'
+        image: 'Изображение'
+        created_at: 'Дата создания'
+      biography:
+        content: 'Биография'
+        photo: 'Фото'
+        created_at: 'Дата создания'
+      biography/review:
+        content: 'Отзыв'
+        author: 'Автор'
+        position: 'Должность'
+        created_at: 'Дата создания'
       manager:
         state_event: 'Действие'
         full_name: 'ФИО'
@@ -30,7 +50,7 @@ ru:
         state: 'Состояние'
         created_at: 'Дата создания'
       question:
-        full_name: 'ФИО'
+        full_name: 'Как к вам обращаться'
         email: 'E-mail'
         phone: 'Телефон'
         content: 'Текст сообщения'

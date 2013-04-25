@@ -1,0 +1,2 @@
+h4 Создание перевода
+= partial 'admin/translations/form'

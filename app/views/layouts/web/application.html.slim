@@ -1,0 +1,64 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    title= content_for?(:title) ? yield(:title) : "Volkova Portfolio"
+    = csrf_meta_tags
+
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+
+    = stylesheet_link_tag "web/application", :media => "all"
+
+  body
+    .main-wrap
+      .main
+        = render 'layouts/shared/web/header'
+
+        .content
+          = yield
+
+          / index page
+          /.index-gallery-wrap
+          /  .index-gallery
+          /    img src="http://placekitten.com/300/400" width=300 height=400
+          /    img src="http://placekitten.com/300/400" width=300 height=400
+          /    img src="http://placekitten.com/300/400" width=300 height=400
+          / end of index page
+
+          / form layout start
+          /.row
+          /  .span
+          /    h1 Как приобрести фотографии
+          /    p
+          /      | Если вас заинтересовали работы Ольги Тупоноговой-Волковой, пожалуйста, заполните форму ниже и мы свяжемся с вами в самое ближайшее время.
+          /  .span
+          /    h1 Сотрудничество
+          /    p
+          /      | Если вы дизайнер и вам подумалось, что работы, увиденные на этом сайте, будут как нельзя лучше смотреться в ваших интерьерах - напишите нам на
+          /      br
+          /      a href="mailto:coworking@photoroom.ru" coworking@photoroom.ru
+          /form.form action="#"
+          /  .row
+          /    label
+          /      input type="checkbox" checked="checked"
+          /      | Получить каталог с работами, описанием производства и подробными условиями покупки
+          /  .row
+          /    .span
+          /      label Как к вам обращаться
+          /      input type="text"
+          /    .span
+          /      label E-mail
+          /      input type="email"
+          /  .row
+          /    label Сообщение
+          /    textarea rows="20" cols="5"
+          /  .row.center
+          /    input type="submit" value="Отправить"
+
+          / form layout end
+
+        = render 'layouts/shared/web/footer'

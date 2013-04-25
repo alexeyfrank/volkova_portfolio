@@ -1,0 +1,14 @@
+= simple_form_for [:admin, @bio] do |f|
+  = f.input :content, as: :ckeditor
+  = f.input :photo, as: :image_preview
+
+  #items
+    = f.simple_fields_for :reviews do |review|
+      = render 'review_fields', f: review
+
+
+  = link_to_add_association 'Добавить отзыв', f, :reviews, class: 'btn btn-info',
+       data: { association_insertion_node: '#items', association_insertion_method: 'append' }
+
+
+  =f.submit class: 'btn btn-primary'

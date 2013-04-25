@@ -1,0 +1,2 @@
+module Web::ProjectsHelper
+end

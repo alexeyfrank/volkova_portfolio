@@ -9,3 +9,12 @@ configus.pages.each do |value|
   page.save
   page.activate
 end
+
+
+if MainPage.count.zero?
+  MainPage.create
+end
+
+if Biography.count.zero?
+  Biography.create
+end
