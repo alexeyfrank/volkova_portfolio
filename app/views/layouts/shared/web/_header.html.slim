@@ -1,18 +1,18 @@
 header
   .motto
-    h1.name= t('site_name')
-    h4.summary interior photo
+    h1.name= t'site_name'
+    h4.summary= t 'site_sub_name'
   nav.nav
     ul.nav-list
       li.item
-        a href="javacript: void(0);"
-          span.text Проекты
+        = link_to projects_path do
+          span.text= t 'menu.projects'
       li.item
-        a href="javacript: void(0);"
-          span.text Фото в интерьере
+        = link_to photos_path do
+          span.text= t 'menu.photos_in_interier'
       li.item
-        a href="javacript: void(0);"
-          span.text Биография
+        = link_to biography_path do
+          span.text= t 'menu.bio'
       li.item
-        a href="javacript: void(0);"
-          span.text Контакты
+        = link_to new_question_path do
+          span.text= t 'menu.contacts'

@@ -10,8 +10,6 @@
         %td
           = f.input_field :email_cont, placeholder: Question.human_attribute_name(:email), label: false, required: false
         %td
-          = f.input_field :phone_cont, placeholder: Question.human_attribute_name(:phone), label: false, required: false
-        %td
           = f.submit t(".search"), :class => 'btn btn-primary' 
 
 
@@ -22,7 +20,6 @@
       %th= sort_link(@search, :id, Question.human_attribute_name(:id))
       %th= sort_link(@search, :full_name, Question.human_attribute_name(:full_name))
       %th= sort_link(@search, :email, Question.human_attribute_name(:email))
-      %th= sort_link(@search, :phone, Question.human_attribute_name(:phone))
       %th= sort_link(@search, :created_at, Question.human_attribute_name(:created_at))
       %th= t(".actions")
   %tbody
@@ -31,7 +28,6 @@
         %td= link_to question.id, admin_question_path(question)
         %td= question.full_name
         %td= question.email
-        %td= question.phone
         %td= l question.created_at
         %td
           = link_to t('.show'), admin_question_path(question), class: 'btn btn-mini'

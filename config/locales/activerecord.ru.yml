@@ -50,7 +50,7 @@ ru:
         state: 'Состояние'
         created_at: 'Дата создания'
       question:
-        full_name: 'ФИО'
+        full_name: 'Как к вам обращаться'
         email: 'E-mail'
         phone: 'Телефон'
         content: 'Текст сообщения'

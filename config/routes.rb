@@ -1,9 +1,5 @@
 VolkovaPortfolio::Application.routes.draw do
 
-  get "biographies/edit"
-
-  get "biographies/update"
-
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :api do
@@ -14,22 +10,28 @@ VolkovaPortfolio::Application.routes.draw do
     end
   end
 
-  scope module: :web do
-    root to: "welcome#index"
-
-    resources :pages, only: [ :show ]
-    resource :session, only: [ :new, :create, :destroy ]
-    resources :questions, only: [ :new, :create ]
-    namespace :admin do
+  scope "(:locale)", :locale => /ru|en/ do
+    scope module: :web do
       root to: "welcome#index"
 
-      resources :translations
-      resources :users
-      resource :main_page, only: [:edit, :update]
-      resource :biography, only: [:edit, :update]
-      resources :pages
-      resources :questions
-      resources :projects
+      resources :pages, only: [ :show ]
+      resource :session, only: [ :new, :create, :destroy ]
+      resources :questions, only: [ :new, :create ]
+      resources :projects, only: [:index]
+      resources :photos, only: [:index]
+      resource :biography, only: [:show]
+
+      namespace :admin do
+        root to: "welcome#index"
+
+        resources :translations
+        resources :users
+        resource :main_page, only: [:edit, :update]
+        resource :biography, only: [:edit, :update]
+        resources :pages
+        resources :questions
+        resources :projects
+      end
     end
   end
 end

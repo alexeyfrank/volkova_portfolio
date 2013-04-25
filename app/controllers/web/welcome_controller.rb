@@ -1,5 +1,5 @@
 class Web::WelcomeController < Web::ApplicationController
   def index
-    @page = Page.find_by_slug! :main
+    @page = MainPage.page
   end
 end

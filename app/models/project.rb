@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  include UsefullScopes
+
   attr_accessible :preview, :title
 
   mount_uploader :preview, PhotoUploader

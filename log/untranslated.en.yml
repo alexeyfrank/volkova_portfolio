@@ -1,10 +1,18 @@
 ---
 en:
-  web:
-    admin:
-      users:
-        index:
-          title: ''
-          search: ''
-          new: ''
-          actions: ''
+  site_name: ''
+  site_sub_name: ''
+  menu:
+    projects: ''
+    photos_in_interier: ''
+    bio: ''
+    contacts: ''
+  contacts:
+    how_get_photos: ''
+    how_get_photos_text: ''
+    participants: ''
+    participants_text: ''
+    email: ''
+    form:
+      get_catalog: ''
+      submit: ''

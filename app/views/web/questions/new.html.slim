@@ -1,0 +1,29 @@
+/ form layout start
+.row
+  .span
+    h1= t 'contacts.how_get_photos'
+    p= t 'contacts.how_get_photos_text'
+  .span
+    h1= t 'contacts.participants'
+    p
+      = t 'contacts.participants_text'
+      br
+      a href="mailto:#{t 'contacts.email'}"= t 'contacts.email'
+
+
+= simple_form_for @question, html: { class: 'form' } do |f|
+  .row
+    label
+      = check_box_tag 'get_catalog', true, checked: true
+      = t 'contacts.form.get_catalog'
+  .row
+    .span
+      = f.input :full_name
+
+    .span
+      = f.input :email
+
+  .row
+    = f.input :content, input_html: { size: '20x5' }
+  .row.center
+    = f.submit t('contacts.form.submit')

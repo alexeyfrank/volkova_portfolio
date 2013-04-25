@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
 
   validates :full_name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, length: { maximum: 255 }, email: true
-  validates :phone, presence: true, length: { maximum: 255 }
+  #validates :phone, presence: true, length: { maximum: 255 }
   validates :content, presence: true
 
   def to_s

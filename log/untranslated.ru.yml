@@ -1,8 +1,4 @@
 ---
 ru:
-  web:
-    admin:
-      biographies:
-        edit:
-          title: ''
-  success: ''
+  contacts_form:
+    submit: ''
