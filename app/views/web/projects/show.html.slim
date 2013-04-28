@@ -1,0 +1,8 @@
+.project-gallery
+  .gallery
+    .gallery-inner
+      - @project.photos.each do |photo|
+        .item
+          .title= photo.title
+          img src="#{photo.image.url}" width=188 height=250
+    ul.gallery-paginator
