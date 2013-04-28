@@ -17,7 +17,7 @@ VolkovaPortfolio::Application.routes.draw do
       resources :pages, only: [ :show ]
       resource :session, only: [ :new, :create, :destroy ]
       resources :questions, only: [ :new, :create ]
-      resources :projects, only: [:index]
+      resources :projects, only: [:index, :show]
       resources :photos, only: [:index]
       resource :biography, only: [:show]
 

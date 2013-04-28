@@ -12,6 +12,7 @@ html
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
 
     = stylesheet_link_tag "web/application", :media => "all"
+    = javascript_include_tag "web/application"
 
   body
     .main-wrap
@@ -28,6 +29,17 @@ html
           /    img src="http://placekitten.com/300/400" width=300 height=400
           /    img src="http://placekitten.com/300/400" width=300 height=400
           / end of index page
+
+          / projects page
+          /.project-gallery
+          /  .gallery
+          /    .gallery-inner
+          /      - 15.times do
+          /        .item
+          /          .title Название проекта
+          /          img src="http://placekitten.com/188/250" width=188 height=250
+          /    ul.gallery-paginator
+          / end projects page
 
           / form layout start
           /.row

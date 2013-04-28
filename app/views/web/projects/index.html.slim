@@ -1,0 +1,8 @@
+.project-gallery
+  .gallery
+    .gallery-inner
+      - @projects.each do |project|
+        .item
+          .title= link_to project.title, projects_path(project)
+          img src="#{project.preview.url}" width=188 height=250
+    ul.gallery-paginator
