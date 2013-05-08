@@ -12,6 +12,13 @@ html
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
 
     = stylesheet_link_tag "web/application", :media => "all"
+
+    - if request.fullpath.include? "projects"
+      script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"
+      script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"
+    - else
+      script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"
+      script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"
     = javascript_include_tag "web/application"
 
   body
@@ -39,7 +46,7 @@ html
           /          .title Название проекта
           /          img src="http://placekitten.com/188/250" width=188 height=250
           /    ul.gallery-paginator
-          / end projects page
+          // end projects page
 
           / form layout start
           /.row

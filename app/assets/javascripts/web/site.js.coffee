@@ -10,18 +10,24 @@ customTitleDestroy = (titleElem) ->
   titleElem.remove() # delete the title element 
 
 
-$(document).ready ->
+$ ->
   
   $('#big_wrapper').css
     width: $('body').width()
     left: (-1) * ($('body').width() / 2 - 330) + 'px'
 
-  $('#flip_projects').jcoverflip
-    titles:
-      create: customTitleCreate
-      destroy: customTitleDestroy
-      change: (event, ui) ->
-        jQuery("#scrollbar").slider "value", ui.to * 25
+  $('#flip').jcoverflip()
+#    controls:
+#      create: customTitleCreate
+#      destroy: customTitleDestroy
+#      change: (event, ui) ->
+#        jQuery("#scrollbar").slider "value", ui.to * 25
+#
+#    titles:
+#      create: customTitleCreate
+#      destroy: customTitleDestroy
+#      change: (event, ui) ->
+#        jQuery("#scrollbar").slider "value", ui.to * 25
 
   jQuery("#scrollbar").slider
     value: 50
