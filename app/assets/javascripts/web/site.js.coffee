@@ -1,36 +1,36 @@
-customTitleCreate = (itemElem) ->
-  title = itemElem.find(".my-custom-title-class-name").eq(0)
-  cloned = title.clone()
-  cloned.data "origin_title", title
-  title.hide()
-  cloned
-
-customTitleDestroy = (titleElem) ->
-  titleElem.data("origin_title").show() # show the original title
-  titleElem.remove() # delete the title element 
-
-
 $ ->
   
   $('#big_wrapper').css
     width: $('body').width()
     left: (-1) * ($('body').width() / 2 - 330) + 'px'
 
-  $('#flip').jcoverflip()
-#    controls:
-#      create: customTitleCreate
-#      destroy: customTitleDestroy
-#      change: (event, ui) ->
-#        jQuery("#scrollbar").slider "value", ui.to * 25
-#
-#    titles:
-#      create: customTitleCreate
-#      destroy: customTitleDestroy
-#      change: (event, ui) ->
-#        jQuery("#scrollbar").slider "value", ui.to * 25
+  $('#flip').jcoverflip
+    beforeCss: (el, container, offset) ->
+      [$.jcoverflip.animationElement(el,
+        left: (container.width() / 2 - 330) + "px"
+        top: "0"
+      , ), $.jcoverflip.animationElement(el.find("img"),
+        height: "150px"
+      , {})]
+    afterCss: (el, container, offset) ->
+      [$.jcoverflip.animationElement(el,
+        left: (container.width() / 2 + 330) + "px"
+        top: "0"
+      , {}), $.jcoverflip.animationElement(el.find("img"),
+        height: "150px"
+      , {})]
+    currentCss: (el, container) ->
+      [$.jcoverflip.animationElement(el,
+        left: (container.width() / 2 - 330) + "px"
+        top: 0
+      , {}), $.jcoverflip.animationElement(el.find("img"),
+        height: "450px"
+      , {})]
+    change: (event, ui) ->
+      jQuery("#scrollbar").slider "value", ui.to * 25
 
   jQuery("#scrollbar").slider
-    value: 50
+    value: 0
     stop: (event, ui) ->
       if event.originalEvent
         newVal = Math.round(ui.value / 25)
