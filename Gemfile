@@ -36,6 +36,7 @@ gem 'globalize3'
 #gem 'ember-validations', github: 'dockyard/ember-validations'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'bcrypt-ruby' #, '~> 3.0.0'
 gem 'jbuilder'
 

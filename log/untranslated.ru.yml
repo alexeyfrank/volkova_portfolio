@@ -1,4 +1,13 @@
 ---
 ru:
-  contacts_form:
-    submit: ''
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            state:
+              invalid_transition: ''
+        page:
+          attributes:
+            state:
+              invalid_transition: ''
