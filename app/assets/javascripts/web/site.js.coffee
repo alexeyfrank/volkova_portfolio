@@ -1,20 +1,48 @@
-$ ->
-  
-  $('#big_wrapper').css
-    width: $('body').width()
-    left: (-1) * ($('body').width() / 2 - 330) + 'px'
 
+
+
+getLeftOffset = (galleryName, currentEl) ->
+  currentIndex = parseInt currentEl.attr('data-id')
+  total = 0
+  currentActiveIndex = parseInt $(window.currentEl).attr('data-id')
+  collection = $(galleryName).find("li").filter (index) ->
+    (index <= currentActiveIndex) && (index >= currentIndex)
+
+  $.each collection, (index, el) -> 
+    total += parseInt($(el).attr('data-small-width')) + 20
+
+  total
+
+getRightOffset = (galleryName, currentEl) ->
+  currentIndex = parseInt currentEl.attr('data-id')
+  total = 0
+  currentActiveIndex = parseInt $(window.currentEl).attr('data-id')
+  collection = $(galleryName).find("li").filter (index) ->
+    (index <= currentActiveIndex) && (index >= currentIndex)
+
+  $.each collection, (index, el) -> 
+    total += parseInt($(el).attr('data-small-width')) + 20
+
+  total
+$(window).load -> 
+  $('#flip').find('img').each (i, el) ->
+    $(el).closest('li').attr('data-small-width', $(el).width())
   $('#flip').jcoverflip
     beforeCss: (el, container, offset) ->
+      if offset == 0 then window.currentEl = el
+      leftOffset = getLeftOffset '#flip', el
       [$.jcoverflip.animationElement(el,
-        left: (container.width() / 2 - 330) + "px"
+        left: (container.width() / 2 - 330) - leftOffset + "px"
         top: "0"
       , ), $.jcoverflip.animationElement(el.find("img"),
         height: "150px"
       , {})]
     afterCss: (el, container, offset) ->
+      console.log "#{offset}: #{$(el).attr('data-id')}"
+
+      leftOffset = getRightOffset '#flip', el
       [$.jcoverflip.animationElement(el,
-        left: (container.width() / 2 + 330) + "px"
+        right: (container.width() / 2 + 330) - leftOffset + "px"
         top: "0"
       , {}), $.jcoverflip.animationElement(el.find("img"),
         height: "150px"
@@ -36,7 +64,13 @@ $ ->
         newVal = Math.round(ui.value / 25)
         jQuery("#flip").jcoverflip "current", newVal
         jQuery("#scrollbar").slider "value", newVal * 25
+  
+$ ->
+  $('#big_wrapper').css
+    width: $('body').width()
+    left: -1 * ($('body').width() / 2 - 330) + 'px'
 
+  
   StartGallery = (name) ->
     el = "." + name
     $(el + " .gallery-inner").carouFredSel
