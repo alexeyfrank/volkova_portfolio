@@ -110,6 +110,11 @@ $ ->
       sliderOpts.slide null,
         value: to
 
+    takeWidth()
+    resetValue()
+    sizeScrollbar()
+    reflowContent()
+
   $("#project-gallery .scroll-content-item img").click ->
 
     $("#project-gallery .scroll-content-item img").attr
