@@ -10,6 +10,8 @@
 #project-gallery
   .scroll-pane.ui-widget.ui-widget-header.ui-corner-all.new-gallery
     .scroll-bar-wrap-wrap
+      = image_tag ('left-arrow.png'), size: "22x22", id: 'gallery-left-arrow', class: 'arrow arrow-left'
+      = image_tag ('right-arrow.png'), size: "22x22", id: 'gallery-right-arrow', class: 'arrow arrow-right'
       .scroll-bar-wrap.ui-widget-content.ui-corner-bottom
         .scroll-bar
     .scroll-content

@@ -37,6 +37,12 @@ $ ->
     width: '660px'
     left: Math.round((winW - 660) / 2) + 'px'
 
+  sliderOpts = slide: (event, ui) ->
+    if scrollContent.width() > scrollPane.width()
+      scrollContent.css "margin-left", Math.round(ui.value / 100 * (scrollPane.width() - scrollContent.width())) + "px"
+    else
+      scrollContent.css "margin-left", 0
+
   #size scrollbar and handle proportionally to scroll distance
   sizeScrollbar = ->
     # remainder = scrollContent.width() - scrollPane.width()
@@ -65,12 +71,7 @@ $ ->
     scrollContent.css "margin-left", parseInt(scrollContent.css("margin-left"), 10) + gap  if gap > 0
   scrollPane = $(".scroll-pane")
   scrollContent = $(".scroll-content")
-  scrollbar = $(".scroll-bar").slider(slide: (event, ui) ->
-    if scrollContent.width() > scrollPane.width()
-      scrollContent.css "margin-left", Math.round(ui.value / 100 * (scrollPane.width() - scrollContent.width())) + "px"
-    else
-      scrollContent.css "margin-left", 0
-  )
+  scrollbar = $("#project-gallery .scroll-bar").slider(sliderOpts)
   handleHelper = scrollbar.find(".ui-slider-handle").mousedown(->
     scrollbar.width handleHelper.width()
   ).mouseup(->
@@ -97,3 +98,11 @@ $ ->
     resetValue()
     sizeScrollbar()
     reflowContent()
+
+  $('#gallery-left-arrow, #gallery-right-arrow').click ->
+    current = $("#project-gallery .scroll-bar").slider('value')
+    to = (if $(this).is("#gallery-left-arrow") then current - 10 else current + 10)
+    if (to <= 100) and (to >= 0)
+      $("#project-gallery .scroll-bar").slider 'value', to
+      sliderOpts.slide null,
+        value: to
