@@ -71,7 +71,11 @@ $ ->
     scrollContent.css "margin-left", parseInt(scrollContent.css("margin-left"), 10) + gap  if gap > 0
   scrollPane = $(".scroll-pane")
   scrollContent = $(".scroll-content")
-  scrollbar = $("#project-gallery .scroll-bar").slider(sliderOpts)
+  console.log $("#project-gallery").size()
+  if ($("#project-gallery").size() > 0)
+    scrollbar = $("#project-gallery .scroll-bar").slider(sliderOpts)
+  else
+    scrollbar = $("#bio-gallery .scroll-bar").slider(sliderOpts)
   handleHelper = scrollbar.find(".ui-slider-handle").mousedown(->
     scrollbar.width handleHelper.width()
   ).mouseup(->
@@ -88,16 +92,6 @@ $ ->
 
   #change handle position on window resize
   $(window).resize ->
-    resetValue()
-    sizeScrollbar()
-    reflowContent()
-
-
-  #init scrollbar size
-  setTimeout sizeScrollbar, 10 #safari wants a timeout
-
-  window.onload = ->
-    takeWidth()
     resetValue()
     sizeScrollbar()
     reflowContent()
@@ -127,6 +121,7 @@ $ ->
       .removeClass('big')
       $(this).parents('.scroll-content-item').find('.summary').hide()
     else
+      $("#project-gallery .scroll-content-item img").removeClass('big')
       $(this).attr
         height: 450
       .addClass('big')
@@ -135,3 +130,25 @@ $ ->
     resetValue()
     sizeScrollbar()
     reflowContent()
+
+  $('#bio-left-arrow, #bio-right-arrow').click ->
+    current = $("#bio-gallery .scroll-bar").slider('value')
+    to = (if $(this).is("#bio-left-arrow") then current - 10 else current + 10)
+    if (to <= 100) and (to >= 0)
+      $("#bio-gallery .scroll-bar").slider 'value', to
+      sliderOpts.slide null,
+        value: to
+
+    takeWidth()
+    resetValue()
+    sizeScrollbar()
+    reflowContent()
+
+  window.onload = ->
+    takeWidth()
+    resetValue()
+    sizeScrollbar()
+    reflowContent()
+
+  #init scrollbar size
+  setTimeout sizeScrollbar, 10 #safari wants a timeout

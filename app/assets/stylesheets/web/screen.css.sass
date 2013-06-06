@@ -1,8 +1,10 @@
 $inner-width: 340px
-$body-bg-color: #fff
-$main-bg-color: #ccc
-$main-text-color: #000
+$body-bg-color: #000
+$main-bg-color: #171717
+$main-text-color: #fff
 $main-border-color: #4e4e4e
+a
+  color: #fff
 
 @font-face
   font-family: 'Conv_Bliss Pro ExtraLight'
@@ -264,7 +266,7 @@ h1
   top: 0
   outline: none
   height: 22px
-  background: #999 !important
+  background: #222 !important
   border: none !important
   border-radius: 0
   span
@@ -298,14 +300,78 @@ h1
         text-align: left
         font-family: 'Conv_Bliss Pro ExtraLight'
         line-height: 22px
+        color: #fff
+        font-weight: 100
         h2
           font-size: 24px
           line-height: 22px
           margin-bottom: 12px
-          color: #000
+          font-weight: 100
+          color: #fff
           font-weight: 100
         a
           font-size: 14px
           line-height: 22px
           position: relative
           z-index: 100
+          color: #fff
+
+
+
+#bio-gallery
+  height: 450px
+  position: relative
+  .new-gallery
+    height: 450px
+    width: 100%
+    position: absolute
+    left: 0
+    top: 0
+  .scroll-content-item
+    float: left
+    height: 450px
+    color: #fff
+    font-family: 'Conv_Bliss Pro ExtraLight'
+    font-size: 14px
+    line-height: 18px
+    text-align: left
+    .cite
+      background-color: #333
+      padding: 20px
+      width: 300px
+      font-weight: 100
+      p
+        font-style: italic
+        margin-bottom: 22px
+      h4
+        font-size: 18px
+        text-align: right
+      h3
+        font-size: 14px
+        text-align: right
+        color: #999
+    .big-bio
+      width: 620px
+      .image
+        width: 300px
+        float: left
+        margin-right: 10px
+      .info
+        font-weight: 100
+        h1
+          font-size: 24px
+          font-weight: 100
+          line-height: 22px
+        h2
+          font-size: 15px
+          color: #999
+          margin-bottom: 20px
+        h5
+          color: #999
+          margin-bottom: 10px
+        li
+          padding-left: 20px
+          &:before
+            content: "-"
+            width: 14px
+            margin-right: 6px
