@@ -6,3 +6,23 @@
       = image_tag @page.second_photo_url, width: 300, height: 400
     - if @page.third_photo_url
       = image_tag @page.third_photo_url, width: 300, height: 400
+
+#project-gallery
+  .scroll-pane.ui-widget.ui-widget-header.ui-corner-all.new-gallery
+    .scroll-bar-wrap-wrap
+      = image_tag ('left-arrow.png'), size: "22x22", id: 'gallery-left-arrow', class: 'arrow arrow-left'
+      = image_tag ('right-arrow.png'), size: "22x22", id: 'gallery-right-arrow', class: 'arrow arrow-right'
+      .scroll-bar-wrap.ui-widget-content.ui-corner-bottom
+        .scroll-bar
+    .scroll-content
+      - 10.times do
+        .scroll-content-item.ui-widget-header
+          %img{src: "http://placekitten.com/600/450", height: '150'}
+          .summary
+            %h2 Очень длинное название фотографии
+            = link_to "Скачать", "#"
+        .scroll-content-item.ui-widget-header
+          %img{src: "http://placekitten.com/450/300", height: '150'}
+          .summary
+            %h2 Очень длинное название фотографии
+            = link_to "Скачать", "#"
