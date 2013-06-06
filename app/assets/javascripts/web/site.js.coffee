@@ -79,6 +79,13 @@ $ ->
   ).append("<span class='ui-icon ui-icon-grip-dotted-vertical'></span>").wrap("<div class='ui-handle-helper-parent'></div>").parent()
   scrollPane.css "overflow", "hidden"
 
+  takeWidth = ->
+    totalWidth = 0
+    $('.scroll-content-item').each ->
+      totalWidth += $(this).width() + 10
+    $('.scroll-content').css
+      width: totalWidth + 'px'
+
   #change handle position on window resize
   $(window).resize ->
     resetValue()
@@ -90,11 +97,7 @@ $ ->
   setTimeout sizeScrollbar, 10 #safari wants a timeout
 
   window.onload = ->
-    totalWidth = 0
-    $('.scroll-content-item').each ->
-      totalWidth += $(this).width() + 10
-    $('.scroll-content').css
-      width: totalWidth + 'px'
+    takeWidth()
     resetValue()
     sizeScrollbar()
     reflowContent()
@@ -106,3 +109,24 @@ $ ->
       $("#project-gallery .scroll-bar").slider 'value', to
       sliderOpts.slide null,
         value: to
+
+  $("#project-gallery .scroll-content-item img").click ->
+
+    $("#project-gallery .scroll-content-item img").attr
+        height: 150
+    $("#project-gallery .scroll-content-item .summary").hide()
+
+    if ($(this)).hasClass('big')
+      $(this).attr
+        height: 150
+      .removeClass('big')
+      $(this).parents('.scroll-content-item').find('.summary').hide()
+    else
+      $(this).attr
+        height: 450
+      .addClass('big')
+      $(this).parents('.scroll-content-item').find('.summary').show()
+    takeWidth()
+    resetValue()
+    sizeScrollbar()
+    reflowContent()

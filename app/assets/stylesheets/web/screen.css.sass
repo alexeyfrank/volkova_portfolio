@@ -281,7 +281,31 @@ h1
     .scroll-content-item
       height: 450px
       float: left
-      h2
+      position: relative
+      &:last-child
+        .summary
+          right: auto
+          left: -210px
+          text-align: right
+      img
+        cursor: pointer
+      .summary
         display: none
-      a
-        display: none
+        position: absolute
+        width: 200px
+        right: -210px
+        top: 200px
+        text-align: left
+        font-family: 'Conv_Bliss Pro ExtraLight'
+        line-height: 22px
+        h2
+          font-size: 24px
+          line-height: 22px
+          margin-bottom: 12px
+          color: #000
+          font-weight: 100
+        a
+          font-size: 14px
+          line-height: 22px
+          position: relative
+          z-index: 100
