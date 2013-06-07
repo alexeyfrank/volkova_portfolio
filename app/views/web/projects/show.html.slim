@@ -1,8 +1,23 @@
-.project-gallery
-  .gallery
-    .gallery-inner
+/.project-gallery
+/  .gallery
+/    .gallery-inner
+/      - @project.photos.each do |photo|
+/        .item
+/          .title= photo.title
+/          img src="#{photo.image.url}" width=188 height=250
+/    ul.gallery-paginator
+
+#project-gallery
+  .scroll-pane.ui-widget.ui-widget-header.ui-corner-all.new-gallery
+    .scroll-bar-wrap-wrap
+      = image_tag ('left-arrow.png'), size: "22x22", id: 'gallery-left-arrow', class: 'arrow arrow-left'
+      = image_tag ('right-arrow.png'), size: "22x22", id: 'gallery-right-arrow', class: 'arrow arrow-right'
+      .scroll-bar-wrap.ui-widget-content.ui-corner-bottom
+        .scroll-bar
+    .scroll-content
       - @project.photos.each do |photo|
-        .item
-          .title= photo.title
-          img src="#{photo.image.url}" width=188 height=250
-    ul.gallery-paginator
+        .scroll-content-item.ui-widget-header
+          img src="#{photo.image.url}" height="150"
+          .summary
+            h2= photo.title
+            = link_to "Скачать", photo.image.url, target: '_blank'
