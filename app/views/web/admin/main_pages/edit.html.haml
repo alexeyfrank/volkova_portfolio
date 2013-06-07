@@ -1,6 +1,6 @@
 %h1 Редактирование главной страницы
 
-= simple_form_for [:admin, @page] do |f|
+= simple_form_for [:admin, @page], url: admin_main_page_path(locale: I18n.locale) do |f|
   .row
     .span4
       = f.input :first_photo, as: :image_preview
