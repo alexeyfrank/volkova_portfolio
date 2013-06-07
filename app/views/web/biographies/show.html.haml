@@ -1,2 +1,41 @@
-%h1 Web::Biographies#index
-%p Find me in app/views/web/biographies/index.html.haml
+#bio-gallery
+  .scroll-pane.ui-widget.ui-widget-header.ui-corner-all.new-gallery
+    .scroll-bar-wrap-wrap
+      = image_tag ('left-arrow.png'), size: "22x22", id: 'bio-left-arrow', class: 'arrow arrow-left'
+      = image_tag ('right-arrow.png'), size: "22x22", id: 'bio-right-arrow', class: 'arrow arrow-right'
+      .scroll-bar-wrap.ui-widget-content.ui-corner-bottom
+        .scroll-bar
+    .scroll-content
+      .scroll-content-item.ui-widget-header
+        .big-bio
+          .image
+            %img{src: @bio.photo_url, height: '450'}
+          .info
+            = @bio.content
+            -#%h1 Ольга Тупоногова-Волкова
+            -#%h2 Замечательный фотограф и хороший человек
+            -#%p Наш совет прост: читайте больше людей. Да-да, всё верно. Ваша лента строится на тех, кого вы читаете. Только так вы получите истинную радость от использования Твиттера. Собрав в своей ленте тех, кто вам близок по духу и разделяет ваши интересы, вы увидите, как Твиттер превратится в неотъемлемую часть вашей жизни.
+            -#%h5 Регалии и заслуги
+            -#%ul
+            -#  %li Пункт списка или что-то типа того
+            -#  %li Еще один пункт
+            -#  %li И еще
+            -#  %li Еще больше пунктов!
+            -#  %li Пункт списка или что-то типа того
+            -#  %li Еще один пункт
+            -#  %li И еще
+            -#  %li Еще больше пунктов!
+      - @bio.reviews.each do |review|
+        .scroll-content-item.ui-widget-header
+          .cite
+            %p
+              = review.content
+              -#“Наш совет прост: читайте больше людей. Да-да, всё верно. Ваша лента строится на тех, кого вы читаете. Только так вы получите истинную радость от использования Твиттера. Собрав в своей ленте тех, кто вам близок по духу и разделяет ваши интересы, вы увидите, как Твиттер превратится в неотъемлемую часть вашей жизни.”
+            %h4= review.author
+            %h3= review.position
+      -#.scroll-content-item.ui-widget-header
+      -#  .cite
+      -#    %p
+      -#      “Показательный пример – филологическое суждение редуцирует ямб, причём сам Тредиаковский свои стихи мыслил как “стихотворное дополнение” к книге Тальмана.”
+      -#    %h4 Остап Бендер
+      -#    %h3 поисковик стульев

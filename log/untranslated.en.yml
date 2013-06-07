@@ -1,12 +1,5 @@
 ---
 en:
-  site_name: ''
-  site_sub_name: ''
-  menu:
-    projects: ''
-    photos_in_interier: ''
-    bio: ''
-    contacts: ''
   contacts:
     how_get_photos: ''
     how_get_photos_text: ''
@@ -16,3 +9,10 @@ en:
     form:
       get_catalog: ''
       submit: ''
+  site_name: ''
+  site_sub_name: ''
+  menu:
+    projects: ''
+    photos_in_interier: ''
+    bio: ''
+    contacts: ''
