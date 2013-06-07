@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @bio] do |f|
+= simple_form_for [:admin, @bio], url: admin_biography_path(locale: I18n.locale)  do |f|
   = f.input :content, as: :ckeditor
   = f.input :photo, as: :image_preview
 
