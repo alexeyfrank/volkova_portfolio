@@ -6,8 +6,9 @@ class Web::QuestionsController < Web::ApplicationController
 
   def create
     @question = Web::QuestionEditType.new params[:question]
+    @get_catalog = params[:get_catalog]
     if @question.save
-      QuestionMailer.new_question(@question).deliver
+      QuestionMailer.new_question(@question, @get_catalog).deliver
       flash_success
       redirect_to params[:from] || root_path
     else
