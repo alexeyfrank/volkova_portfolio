@@ -5,14 +5,10 @@ header
   nav.nav
     ul.nav-list
       li.item
-        = link_to projects_path do
-          span.text= t 'menu.projects'
+        = link_to_unless_current "<span class='text'>#{t 'menu.projects'}</span>".html_safe, projects_path(locale: I18n.locale) 
       li.item
-        = link_to photos_path do
-          span.text= t 'menu.photos_in_interier'
+        = link_to_unless_current "<span class='text'>#{t 'menu.photos_in_interier'}</span>".html_safe, photos_path(locale: I18n.locale)
       li.item
-        = link_to biography_path do
-          span.text= t 'menu.bio'
+        = link_to_unless_current "<span class='text'>#{t 'menu.bio'}</span>".html_safe, biography_path(locale: I18n.locale) 
       li.item
-        = link_to new_question_path do
-          span.text= t 'menu.contacts'
+        = link_to_unless_current "<span class='text'>#{t 'menu.contacts'}</span>".html_safe, new_question_path(locale: I18n.locale) 
