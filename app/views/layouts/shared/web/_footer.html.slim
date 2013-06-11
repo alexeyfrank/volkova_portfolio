@@ -2,8 +2,6 @@ footer
   nav.nav.nav-list-i18n
     ul.nav-list
       li.item class="#{ 'active' if locale.eql?('ru') }"
-        = link_to url_for(locale: :ru) do
-          span.text рус
+        = link_to_unless_current "<span class='text'>рус</span>".html_safe, url_for(locale: :ru)
       li.item class="#{ 'active' if locale.eql?('en') }"
-        = link_to url_for(locale: :en) do
-          span.text eng
+        = link_to_unless_current "<span class='text'>eng</span>".html_safe, url_for(locale: :en)
