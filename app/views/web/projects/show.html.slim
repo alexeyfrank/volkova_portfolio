@@ -20,4 +20,4 @@
           img src="#{photo.image.url}" height="150"
           .summary
             h2= photo.title
-            = link_to "Скачать", photo.image.url, target: '_blank'
+            = link_to t('how_to_order'), new_question_path(locale: I18n.locale)
