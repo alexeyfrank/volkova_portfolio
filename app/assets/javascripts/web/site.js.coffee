@@ -1,5 +1,13 @@
 $(document).ready ->
 
+  maxTitle = 0
+  $('.project-gallery .title').each ->
+    if parseInt($(this).height()) > maxTitle
+      maxTitle = parseInt($(this).height())
+  $('.project-gallery .title').each ->
+    $(this).css
+      height: maxTitle + 'px'
+
   StartGallery = (name) ->
     el = "." + name
     $(el + " .gallery-inner").carouFredSel
