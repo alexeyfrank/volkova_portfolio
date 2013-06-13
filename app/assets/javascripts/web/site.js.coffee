@@ -8,6 +8,8 @@ $(document).ready ->
         height: "variable"
       scroll:
         duration: 1000
+      auto:
+        play: false
       prev:
         button: el + " .arrow.prev"
         key: "left"
