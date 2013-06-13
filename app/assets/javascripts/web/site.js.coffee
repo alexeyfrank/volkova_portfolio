@@ -44,10 +44,10 @@ $ ->
   winW = parseInt($('body').width())
   $(".scroll-pane").css
     width: winW + 'px'
-    left: Math.round(-1 * (winW - 660) / 2) + 'px'
+    left: Math.round(-1 * (winW - 620) / 2) + 'px'
   $('.scroll-bar-wrap-wrap').css
-    width: '660px'
-    left: Math.round((winW - 660) / 2) + 'px'
+    width: '620px'
+    left: Math.round((winW - 620) / 2) + 20 + 'px'
 
   sliderOpts = slide: (event, ui) ->
     if scrollContent.width() > scrollPane.width()
@@ -58,11 +58,11 @@ $ ->
   #size scrollbar and handle proportionally to scroll distance
   sizeScrollbar = ->
     # remainder = scrollContent.width() - scrollPane.width()
-    # remainder = scrollContent.width() - 614
+    # remainder = scrollContent.width() - 574
     # proportion = remainder / scrollContent.width()
     # handleSize = scrollPane.width() - (proportion * scrollPane.width())
     proportion = winW / scrollContent.width()
-    handleSize = 614 - (proportion * 614)
+    handleSize = 574 - (proportion * 574)
     scrollbar.find(".ui-slider-handle").css
       width: handleSize
       "margin-left": -handleSize / 2
