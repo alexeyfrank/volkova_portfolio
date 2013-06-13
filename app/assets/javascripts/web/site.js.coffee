@@ -49,6 +49,10 @@ $ ->
     width: '620px'
     left: Math.round((winW - 620) / 2) + 20 + 'px'
 
+  $('.scroll-content-item.fake').css
+    width: Math.round((winW - 620) / 2) + 20 + 'px'
+    height: '450px'
+
   sliderOpts = slide: (event, ui) ->
     if scrollContent.width() > scrollPane.width()
       scrollContent.css "margin-left", Math.round(ui.value / 100 * (scrollPane.width() - scrollContent.width())) + "px"
@@ -83,6 +87,9 @@ $ ->
     scrollContent.css "margin-left", parseInt(scrollContent.css("margin-left"), 10) + gap  if gap > 0
   scrollPane = $(".scroll-pane")
   scrollContent = $(".scroll-content")
+  if (parseInt(scrollContent.width()) < winW)
+    scrollContent.css
+      width: winW + 'px'
   console.log $("#project-gallery").size()
   if ($("#project-gallery").size() > 0)
     scrollbar = $("#project-gallery .scroll-bar").slider(sliderOpts)
@@ -138,6 +145,30 @@ $ ->
         height: 450
       .addClass('big')
       $(this).parents('.scroll-content-item').find('.summary').show()
+
+      current = $("#project-gallery .scroll-bar").slider('value')
+      current_index = $('.scroll-content-item').index($(this).parent('.scroll-content-item'))
+
+      takeWidth()
+      resetValue()
+      sizeScrollbar()
+      reflowContent()
+
+      i = 0
+      totalW = 0
+      $('.scroll-content-item').each ->
+        if (i < current_index)
+          totalW += parseInt($(this).width()) + 10
+        i++
+      to = (totalW / $('.scroll-content').width()) * 100
+      if (to <= 100) and (to >= 0)
+        $("#project-gallery .scroll-bar").slider 'value', to
+        sliderOpts.slide null,
+          value: to
+      $('.scroll-content').css
+        marginLeft: -1 * totalW + Math.round((winW - 620) / 2) + 'px'
+      console.log totalW
+
     takeWidth()
     resetValue()
     sizeScrollbar()
@@ -161,6 +192,10 @@ $ ->
     resetValue()
     sizeScrollbar()
     reflowContent()
+    $("#project-gallery .scroll-content-item:eq(1) img").attr
+      height: 450
+    $("#project-gallery .scroll-content-item:eq(1) img").addClass('big')
+    $("#project-gallery .scroll-content-item:eq(1)").find('.summary').show()
 
   #init scrollbar size
   setTimeout sizeScrollbar, 10 #safari wants a timeout

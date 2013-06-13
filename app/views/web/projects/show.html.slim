@@ -15,9 +15,11 @@
       .scroll-bar-wrap.ui-widget-content.ui-corner-bottom
         .scroll-bar
     .scroll-content
+      .scroll-content-item.fake
       - @project.photos.each do |photo|
         .scroll-content-item.ui-widget-header
           img src="#{photo.image.url}" height="150"
           .summary
             h2= photo.title
             = link_to t('how_to_order'), new_question_path(locale: I18n.locale)
+      .scroll-content-item.fake
