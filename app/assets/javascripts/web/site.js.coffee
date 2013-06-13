@@ -12,6 +12,8 @@ $(document).ready ->
     el = "." + name
     $(el + " .gallery-inner").carouFredSel
       height: "auto"
+      infinite: false
+      circular: false
       items:
         height: "variable"
       scroll:
