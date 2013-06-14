@@ -1,3 +1,13 @@
 ---
 ru:
-  success: ''
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            state:
+              invalid_transition: ''
+        page:
+          attributes:
+            state:
+              invalid_transition: ''

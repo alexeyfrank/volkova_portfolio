@@ -1,11 +1,12 @@
 class Api::TranslationsController < Api::ApplicationController
   def index
-    @search = I18n::Backend::ActiveRecord::Translation.ransack params[:q]
+    @search = I18n::Backend::ActiveRecord::Translation.order("key ASC").ransack params[:q]
     @translations = @search.result #.page(params[:page]).per(40)
   end
 
   def reload
     I18n.reload!
+    I18n.backend.reload!
     render json: { status: :ok }
   end
 

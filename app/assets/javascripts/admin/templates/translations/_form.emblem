@@ -1,12 +1,12 @@
 form
   .control-group
-    label= t "translation.key"
+    label Ключ
     Ember.TextField valueBinding="key" class="span12"
   .control-group
-    label= t "translation.value"
+    label Перевод
     Ember.TextField valueBinding="value" class="span12"
   .control-group
-    label= t "translation.locale"
+    label Локаль
     Ember.Select valueBinding="locale" contentBinding="SiteAdmin.locales" class="span12" prompt="Выберите локаль"
 
   .form-actions
