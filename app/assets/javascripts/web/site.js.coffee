@@ -90,7 +90,6 @@ $ ->
   if (parseInt(scrollContent.width()) < winW)
     scrollContent.css
       width: winW + 'px'
-  console.log $("#project-gallery").size()
   if ($("#project-gallery").size() > 0)
     scrollbar = $("#project-gallery .scroll-bar").slider(sliderOpts)
   else
@@ -144,6 +143,17 @@ $ ->
       $(this).attr
         height: 450
       .addClass('big')
+      imgIndex = $("#project-gallery .scroll-content-item").index($(this).parents(".scroll-content-item"))
+      slidesNum = $("#project-gallery .scroll-content-item").size()
+      if (imgIndex == slidesNum - 2)
+        selfWidth = parseInt($(this).width())
+        console.log(selfWidth)
+        $('.scroll-content-item.fake:last').css
+          width: winW - ((Math.round((winW - 620) / 2) + 20) + selfWidth) + 'px'
+      else
+        $('.scroll-content-item.fake:last').css
+          width: Math.round((winW - 620) / 2) + 20 + 'px'
+
       $(this).parents('.scroll-content-item').find('.summary').show()
 
       current = $("#project-gallery .scroll-bar").slider('value')
@@ -167,7 +177,6 @@ $ ->
           value: to
       $('.scroll-content').css
         marginLeft: -1 * totalW + Math.round((winW - 620) / 2) + 'px'
-      console.log totalW
 
     takeWidth()
     resetValue()
