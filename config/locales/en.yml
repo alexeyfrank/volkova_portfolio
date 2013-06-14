@@ -1,24 +1,24 @@
 en:
-  site_name: 'Olga Tuponogova-Volkova'
-  site_sub_name: 'Photo for your interior'
-  how_to_order: How to Order
-  menu:
-    projects: 'Projects'
-    photos_in_interier: 'As it looks'
-    bio: Biography
-    contacts: Contacts
-
-  contacts:
-    how_get_photos: 'How to buy'
-    how_get_photos_text: 'English! Если вас заинтересовали работы Ольги Тупоноговой-Волковой, пожалуйста, заполните форму ниже и мы свяжемся с вами в самое ближайшее время.'
-    participants: 'Participants'
-    participants_text: 'English! Если вы дизайнер и вам подумалось, что работы, увиденные на этом сайте, будут как нельзя лучше смотреться в ваших интерьерах - напишите нам на'
-    email: coworking@photoroom.ru
-    form:
-      get_catalog: 'English! Получить каталог с работами, описанием производства и подробными условиями покупки'
-      submit: 'Submit'
-  web:
-    sessions:
-      new:
-        title: 'Вход'
-        submit: 'Войти'
+#  site_name: 'Olga Tuponogova-Volkova'
+#  site_sub_name: 'Photo for your interior'
+#  how_to_order: How to Order
+#  menu:
+#    projects: 'Projects'
+#    photos_in_interier: 'As it looks'
+#    bio: Biography
+#    contacts: Contacts
+#
+#  contacts:
+#    how_get_photos: 'How to buy'
+#    how_get_photos_text: 'English! Если вас заинтересовали работы Ольги Тупоноговой-Волковой, пожалуйста, заполните форму ниже и мы свяжемся с вами в самое ближайшее время.'
+#    participants: 'Participants'
+#    participants_text: 'English! Если вы дизайнер и вам подумалось, что работы, увиденные на этом сайте, будут как нельзя лучше смотреться в ваших интерьерах - напишите нам на'
+#    email: coworking@photoroom.ru
+#    form:
+#      get_catalog: 'English! Получить каталог с работами, описанием производства и подробными условиями покупки'
+#      submit: 'Submit'
+#  web:
+#    sessions:
+#      new:
+#        title: 'Вход'
+#        submit: 'Войти'
