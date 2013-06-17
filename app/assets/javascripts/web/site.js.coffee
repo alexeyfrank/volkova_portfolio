@@ -127,6 +127,15 @@ $ ->
 #        sliderOpts.slide null,
 #          value: to
 
+
+  $('#gallery-right-arrow, #gallery-left-arrow').click(->
+    if this.id == 'gallery-right-arrow'
+      moveRight($(this))()
+    else
+      moveLeft($(this))()
+  )
+
+
   timeoutId = 0
   $('#gallery-right-arrow, #gallery-left-arrow').mousedown(->
     if this.id == 'gallery-right-arrow'
@@ -142,6 +151,7 @@ $ ->
 
       initWidth = parseInt($(this).width())
 
+      $("#project-gallery .scroll-content-item img.big").parent().find('.summary').hide()
       $("#project-gallery .scroll-content-item img.big").animate
         height: 150
       $("#project-gallery .scroll-content-item img.big").removeClass('big')
