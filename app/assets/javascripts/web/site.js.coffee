@@ -42,9 +42,11 @@ $ ->
   #change overflow to hidden now that slider handles the scrolling
 
   winW = parseInt($('body').width())
+
   $(".scroll-pane").css
     width: winW + 'px'
     left: Math.round(-1 * (winW - 620) / 2) + 'px'
+
   $('.scroll-bar-wrap-wrap').css
     width: '620px'
     left: Math.round((winW - 620) / 2) + 20 + 'px'
@@ -59,7 +61,6 @@ $ ->
     else
       scrollContent.css "margin-left", 0
 
-  #size scrollbar and handle proportionally to scroll distance
   sizeScrollbar = ->
     # remainder = scrollContent.width() - scrollPane.width()
     # remainder = scrollContent.width() - 574
@@ -73,14 +74,12 @@ $ ->
 
     handleHelper.width("").width scrollbar.width() - handleSize
 
-  #reset slider value based on scroll content position
   resetValue = ->
     remainder = scrollPane.width() - scrollContent.width()
     leftVal = (if scrollContent.css("margin-left") is "auto" then 0 else parseInt(scrollContent.css("margin-left")))
     percentage = Math.round(leftVal / remainder * 100)
     scrollbar.slider "value", percentage
 
-  #if the slider is 100% and window gets larger, reveal content
   reflowContent = ->
     showing = scrollContent.width() + parseInt(scrollContent.css("margin-left"), 10)
     gap = scrollPane.width() - showing
@@ -108,7 +107,6 @@ $ ->
     $('.scroll-content').css
       width: totalWidth + 'px'
 
-  #change handle position on window resize
   $(window).resize ->
     resetValue()
     sizeScrollbar()
@@ -129,20 +127,15 @@ $ ->
 
   $("#project-gallery .scroll-content-item img").click ->
 
-    $("#project-gallery .scroll-content-item img").attr
-        height: 150
-    $("#project-gallery .scroll-content-item .summary").hide()
+    if (!($(this).hasClass('big')))
 
-    if ($(this)).hasClass('big')
-      $(this).attr
+      $("#project-gallery .scroll-content-item img.big").attr
         height: 150
-      .removeClass('big')
-      $(this).parents('.scroll-content-item').find('.summary').hide()
-    else
-      $("#project-gallery .scroll-content-item img").removeClass('big')
+      $("#project-gallery .scroll-content-item img.big").removeClass('big')
       $(this).attr
         height: 450
-      .addClass('big')
+      $(this).addClass('big')
+
       imgIndex = $("#project-gallery .scroll-content-item").index($(this).parents(".scroll-content-item"))
       slidesNum = $("#project-gallery .scroll-content-item").size()
       if (imgIndex == slidesNum - 2)
@@ -154,6 +147,7 @@ $ ->
         $('.scroll-content-item.fake:last').css
           width: Math.round((winW - 620) / 2) + 20 + 'px'
 
+      $("#project-gallery .scroll-content-item .summary").hide()
       $(this).parents('.scroll-content-item').find('.summary').show()
 
       current = $("#project-gallery .scroll-bar").slider('value')
