@@ -169,9 +169,9 @@ $ ->
       to = (totalW / $('.scroll-content').width()) * 100
       if (to <= 100) and (to >= 0)
         $("#project-gallery .scroll-bar").slider 'value', to
-        sliderOpts.slide null,
-          value: to
-      $('.scroll-content').css
+        #sliderOpts.slide null,
+        #  value: to
+      $('.scroll-content').animate
         marginLeft: -1 * totalW + Math.round((winW - 620) / 2) + 'px'
 
     takeWidth()
