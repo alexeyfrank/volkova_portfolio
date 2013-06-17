@@ -112,18 +112,20 @@ $ ->
     sizeScrollbar()
     reflowContent()
 
-  $('#gallery-left-arrow, #gallery-right-arrow').click ->
+  myFunction = (clickedObj) ->
     current = $("#project-gallery .scroll-bar").slider('value')
-    to = (if $(this).is("#gallery-left-arrow") then current - 10 else current + 10)
-    if (to <= 100) and (to >= 0)
+    to = (if clickedObj.is("#gallery-left-arrow") then current - 10 else current + 10)
+
+    if ((to <= 100) and (to >= 0))
       $("#project-gallery .scroll-bar").slider 'value', to
       sliderOpts.slide null,
         value: to
 
-    takeWidth()
-    resetValue()
-    sizeScrollbar()
-    reflowContent()
+  timeoutId = 0
+  $('#gallery-right-arrow, #gallery-left-arrow').mousedown(->
+    timeoutId = setInterval(myFunction($(this)), 500)
+  ).on "mouseup mouseleave", ->
+    clearTimeout timeoutId
 
   $("#project-gallery .scroll-content-item img").click ->
 
