@@ -131,48 +131,51 @@ $ ->
 
     if (!($(this).hasClass('big')))
 
-      $("#project-gallery .scroll-content-item img.big").attr
+      initWidth = parseInt($(this).width())
+
+      $("#project-gallery .scroll-content-item img.big").animate
         height: 150
       $("#project-gallery .scroll-content-item img.big").removeClass('big')
-      $(this).attr
+      $(this).animate
         height: 450
-      $(this).addClass('big')
+      ,
+        complete: ->
+          $(this).addClass('big')
 
-      imgIndex = $("#project-gallery .scroll-content-item").index($(this).parents(".scroll-content-item"))
-      slidesNum = $("#project-gallery .scroll-content-item").size()
-      if (imgIndex == slidesNum - 2)
-        selfWidth = parseInt($(this).width())
-        console.log(selfWidth)
-        $('.scroll-content-item.fake:last').css
-          width: winW - ((Math.round((winW - 620) / 2) + 20) + selfWidth) + 'px'
-      else
-        $('.scroll-content-item.fake:last').css
-          width: Math.round((winW - 620) / 2) + 20 + 'px'
+          newWidth = initWidth * 3
 
-      $("#project-gallery .scroll-content-item .summary").hide()
-      $(this).parents('.scroll-content-item').find('.summary').show()
+          imgIndex = $("#project-gallery .scroll-content-item").index($(this).parents(".scroll-content-item"))
+          slidesNum = $("#project-gallery .scroll-content-item").size()
+          if (imgIndex == slidesNum - 2)
+            # selfWidth = parseInt($(this).width())
+            $('.scroll-content-item.fake:last').css
+              width: winW - ((Math.round((winW - 620) / 2) + 20) + newWidth) + 'px'
+          else
+            $('.scroll-content-item.fake:last').css
+              width: Math.round((winW - 620) / 2) + 20 + 'px'
 
-      current = $("#project-gallery .scroll-bar").slider('value')
-      current_index = $('.scroll-content-item').index($(this).parent('.scroll-content-item'))
+          $("#project-gallery .scroll-content-item .summary").hide()
+          $(this).parents('.scroll-content-item').find('.summary').show()
 
-      takeWidth()
-      resetValue()
-      sizeScrollbar()
-      reflowContent()
+          current = $("#project-gallery .scroll-bar").slider('value')
+          current_index = $('.scroll-content-item').index($(this).parent('.scroll-content-item'))
 
-      i = 0
-      totalW = 0
-      $('.scroll-content-item').each ->
-        if (i < current_index)
-          totalW += parseInt($(this).width()) + 10
-        i++
-      to = (totalW / $('.scroll-content').width()) * 100
-      if (to <= 100) and (to >= 0)
-        $("#project-gallery .scroll-bar").slider 'value', to
-        #sliderOpts.slide null,
-        #  value: to
-      $('.scroll-content').animate
-        marginLeft: -1 * totalW + Math.round((winW - 620) / 2) + 'px'
+          takeWidth()
+          resetValue()
+          sizeScrollbar()
+          reflowContent()
+
+          i = 0
+          totalW = 0
+          $('.scroll-content-item').each ->
+            if (i < current_index)
+              totalW += parseInt($(this).width()) + 10
+            i++
+          to = (totalW / $('.scroll-content').width()) * 100
+          if (to <= 100) and (to >= 0)
+            $("#project-gallery .scroll-bar").slider 'value', to
+          $('.scroll-content').animate
+            marginLeft: -1 * totalW + Math.round((winW - 620) / 2) + 'px'
 
     takeWidth()
     resetValue()
@@ -197,7 +200,7 @@ $ ->
     resetValue()
     sizeScrollbar()
     reflowContent()
-    $("#project-gallery .scroll-content-item:eq(1) img").attr
+    $("#project-gallery .scroll-content-item:eq(1) img").css
       height: 450
     $("#project-gallery .scroll-content-item:eq(1) img").addClass('big')
     $("#project-gallery .scroll-content-item:eq(1)").find('.summary').show()
