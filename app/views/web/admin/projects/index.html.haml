@@ -27,6 +27,7 @@
         %td= project.title
         %td= l project.created_at
         %td
+          = link_to "Множественная загрузка", admin_project_project_photos_path(project), class: 'btn btn-mini'
           = link_to t('.edit'), edit_admin_project_path(project), class: 'btn btn-mini'
           = link_to t('.destroy'),  admin_project_path(project), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
 = paginate @projects

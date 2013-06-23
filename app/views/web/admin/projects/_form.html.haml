@@ -3,11 +3,11 @@
   = f.input :preview, as: :image_preview
 
   #items
-    = f.simple_fields_for :photos do |photo|
+    = f.simple_fields_for :project_photos do |photo|
       = render 'photo_fields', f: photo
 
 
-  = link_to_add_association 'Добавить работу', f, :photos, class: 'btn btn-info',
+  = link_to_add_association 'Добавить работу', f, :project_photos, class: 'btn btn-info',
        data: { association_insertion_node: '#items', association_insertion_method: 'append' }
 
 

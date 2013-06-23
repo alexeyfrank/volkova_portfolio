@@ -34,6 +34,7 @@ gem 'ember-rails'
 gem 'emblem-rails'
 gem 'globalize3'
 #gem 'ember-validations', github: 'dockyard/ember-validations'
+gem "jquery-fileupload-rails"
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

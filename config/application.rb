@@ -65,5 +65,7 @@ module VolkovaPortfolio
       g.stylesheets false
       g.javascripts false
     end
+
+    config.middleware.use JQuery::FileUpload::Rails::Middleware
   end
 end

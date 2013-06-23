@@ -22,6 +22,7 @@
 //= require_tree ./common
 //= require_self
 //= require ./admin/bootstrap
+//= require jquery-fileupload
 SiteAdmin = Ember.Application.create({
     rootElement: '#ember-app'
 });
