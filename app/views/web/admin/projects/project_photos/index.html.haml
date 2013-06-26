@@ -9,7 +9,7 @@
           %i.icon-plus.icon-white
           %span Добавить файлы
           = f.hidden_field :project_id
-          = f.file_field :image
+          = f.file_field :image, :multiple => true
         %button.btn.btn-primary.start{:type => "submit"}
           %i.icon-upload.icon-white
           %span Начать загрузку

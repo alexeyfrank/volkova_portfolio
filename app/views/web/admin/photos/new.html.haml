@@ -8,7 +8,7 @@
         %span.btn.btn-success.fileinput-button
           %i.icon-plus.icon-white
           %span Добавить файлы
-          = f.file_field :file
+          = f.file_field :file, :multiple => true
         %button.btn.btn-primary.start{:type => "submit"}
           %i.icon-upload.icon-white
           %span Начать загрузку
