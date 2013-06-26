@@ -7,7 +7,7 @@ class Project < ActiveRecord::Base
 
   translates :title
 
-  has_many :photos, :class_name => 'Project::Photo'
+  has_many :photos, :class_name => 'Project::Photo', :order => 'position ASC'
 
 
   validates_associated :photos
