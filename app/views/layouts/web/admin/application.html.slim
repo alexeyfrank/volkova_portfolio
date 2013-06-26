@@ -12,6 +12,7 @@ html
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
 
     = stylesheet_link_tag "admin", :media => "all"
+    = javascript_include_tag "admin"
 
   body
     .navbar.navbar-fixed-top.navbar-inverse
@@ -21,7 +22,6 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to 'Панель администратора', admin_root_path, class: "brand"
           .nav-collapse
             ul.nav
               li
@@ -30,6 +30,8 @@ html
                 = link_to 'Главная страница', edit_admin_main_page_path
               li
                 = link_to 'Проекты', admin_projects_path
+              li
+                = link_to 'Фото в интерьере', admin_photos_path
               li
                 = link_to 'Биография', edit_admin_biography_path
               li
@@ -54,22 +56,3 @@ html
     .container-fluid
       #ember-app.content
         = yield
-
-    = javascript_include_tag "admin"
-
-
-    javascript:
-      $(function () {
-        $('#fileupload').fileupload();
-        $.getJSON($('#fileupload').prop('action'), function (files) {
-          files = files.project_photos;
-          var fu = $('#fileupload').data('blueimpFileupload'), template;
-          fu._adjustMaxNumberOfFiles(-files.length);
-          console.log(files);
-          template = fu._renderDownload(files).appendTo($('#fileupload .files'));
-          fu._reflow = fu._transition && template.length && template[0].offsetWidth;
-          template.addClass('in');
-          $('#loading').remove();
-        });
-
-      });

@@ -18,6 +18,7 @@
     %tr
       %th= sort_link(@search, :id, Project.human_attribute_name(:id))
       %th= sort_link(@search, :title, Project.human_attribute_name(:title))
+      %th= sort_link(@search, :position, Project.human_attribute_name(:position))
       %th= sort_link(@search, :created_at, Project.human_attribute_name(:created_at))
       %th= t(".actions")
   %tbody
@@ -25,6 +26,7 @@
       %tr
         %td= project.id
         %td= project.title
+        %td= project.position
         %td= l project.created_at
         %td
           = link_to "Множественная загрузка", admin_project_project_photos_path(project), class: 'btn btn-mini'

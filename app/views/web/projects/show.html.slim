@@ -16,7 +16,7 @@
         .scroll-bar
     .scroll-content
       .scroll-content-item.fake
-      - @project.photos.each do |photo|
+      - @project.photos.asc_by_position.each do |photo|
         .scroll-content-item.ui-widget-header
           img src="#{photo.image.url}" height="150"
           .summary

@@ -1,0 +1,36 @@
+.page-header
+  %h1=t('.title')
+  
+= simple_form_for @search, url: admin_photos_path, method: :get do |f|
+  %table.table
+    %thead
+      %tr
+        %td
+          = f.input_field :title_cont, placeholder: Photo.human_attribute_name(:title), label: false, required: false
+        %td
+          = f.submit t(".search"), class: 'btn btn-primary'
+
+= link_to t('.new'), new_admin_photo_path, :class => 'btn btn-primary'
+    
+= paginate @photos
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link(@search, :id, Photo.human_attribute_name(:id))
+      %th= sort_link(@search, :title, Photo.human_attribute_name(:title))
+      %th= sort_link(@search, :position, Photo.human_attribute_name(:position))
+      %th= sort_link(@search, :created_at, Photo.human_attribute_name(:created_at))
+      %th= t(".actions")
+  %tbody
+    - @photos.each do |photo|
+      %tr
+        %td= photo.id
+        %td= photo.title
+        %td= photo.position
+        %td= l photo.created_at
+        %td
+          = link_to t('.edit'), edit_admin_photo_path(photo), class: 'btn btn-mini'
+          = link_to t('.destroy'),  admin_photo_path(photo), method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-mini btn-danger'
+= paginate @photos
+
+= link_to t('.new'), new_admin_photo_path, class: 'btn btn-primary'

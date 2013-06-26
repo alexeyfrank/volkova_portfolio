@@ -1,6 +1,6 @@
 class Web::ProjectsController < Web::ApplicationController
   def index
-    @projects = Project.by_created_at
+    @projects = Project.asc_by_position
   end
 
   def show

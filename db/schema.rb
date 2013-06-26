@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423173820) do
+ActiveRecord::Schema.define(:version => 20130626000519) do
 
   create_table "biographies", :force => true do |t|
     t.string   "photo"
@@ -115,11 +115,23 @@ ActiveRecord::Schema.define(:version => 20130423173820) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "project_photos", :force => true do |t|
-    t.string   "file"
+  create_table "photo_translations", :force => true do |t|
+    t.integer  "photo_id"
+    t.string   "locale"
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  add_index "photo_translations", ["locale"], :name => "index_photo_translations_on_locale"
+  add_index "photo_translations", ["photo_id"], :name => "index_photo_translations_on_photo_id"
+
+  create_table "photos", :force => true do |t|
+    t.string   "file"
+    t.string   "title"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "position",   :default => 0
   end
 
   create_table "project_photo_translations", :force => true do |t|
@@ -137,8 +149,9 @@ ActiveRecord::Schema.define(:version => 20130423173820) do
     t.string   "title"
     t.string   "image"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "position",   :default => 0
   end
 
   create_table "project_translations", :force => true do |t|
@@ -155,8 +168,9 @@ ActiveRecord::Schema.define(:version => 20130423173820) do
   create_table "projects", :force => true do |t|
     t.string   "title"
     t.string   "preview"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "position",   :default => 0
   end
 
   create_table "questions", :force => true do |t|

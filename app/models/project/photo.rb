@@ -1,7 +1,7 @@
 class Project::Photo < ActiveRecord::Base
   include UsefullScopes
 
-  attr_accessible :image, :project_id, :title
+  attr_accessible :image, :project_id, :title, :position
 
   mount_uploader :image, PhotoUploader
 
@@ -10,7 +10,6 @@ class Project::Photo < ActiveRecord::Base
   translates :title
 
   include Rails.application.routes.url_helpers
-
 
   def to_jq_upload
     {

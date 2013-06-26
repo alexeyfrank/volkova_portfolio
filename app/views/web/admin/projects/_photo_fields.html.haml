@@ -1,5 +1,6 @@
 .nested-fields.well
   = f.input :title
+  = f.input :position
   = f.input :image, as: :image_preview
   %br
   = link_to_remove_association "Удалить работу", f, class: 'btn btn-danger'

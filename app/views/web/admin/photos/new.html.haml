@@ -1,6 +1,6 @@
 .container
   %h2 Загрузка фото
-  = form_for [:admin, resource_project, @photo], html: { multipart: true, id: "fileupload"  } do |f|
+  = form_for [:admin, @photo], html: { multipart: true, id: "fileupload"  } do |f|
     / The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload
     .row.fileupload-buttonbar
       .span7
@@ -8,8 +8,7 @@
         %span.btn.btn-success.fileinput-button
           %i.icon-plus.icon-white
           %span Добавить файлы
-          = f.hidden_field :project_id
-          = f.file_field :image
+          = f.file_field :file
         %button.btn.btn-primary.start{:type => "submit"}
           %i.icon-upload.icon-white
           %span Начать загрузку
@@ -105,12 +104,11 @@
 
 
 
-
 :javascript
   $(function () {
     $('#fileupload').fileupload();
     $.getJSON($('#fileupload').prop('action'), function (files) {
-      files = files.project_photos;
+      files = files.photos;
       var fu = $('#fileupload').data('blueimpFileupload'), template;
       fu._adjustMaxNumberOfFiles(-files.length);
       console.log(files);

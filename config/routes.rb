@@ -30,6 +30,7 @@ VolkovaPortfolio::Application.routes.draw do
         resource :biography, only: [:edit, :update]
         resources :pages
         resources :questions
+        resources :photos
         resources :projects do
           scope module: :projects do
             resources :project_photos
