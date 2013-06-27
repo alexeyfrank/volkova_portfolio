@@ -88,11 +88,13 @@ $ ->
   scrollContent = $(".scroll-content")
   if (parseInt(scrollContent.width()) < winW)
     scrollContent.css
-      width: winW + 'px'
+      width: winW + 100 + 'px'
   if ($("#project-gallery").size() > 0)
     scrollbar = $("#project-gallery .scroll-bar").slider(sliderOpts)
   else
     scrollbar = $("#bio-gallery .scroll-bar").slider(sliderOpts)
+  if (scrollContent.find('.scroll-content-item').size() < 3)
+    $('.scroll-bar-wrap-wrap').hide()
   handleHelper = scrollbar.find(".ui-slider-handle").mousedown(->
     scrollbar.width handleHelper.width()
   ).mouseup(->
