@@ -30,7 +30,10 @@ class Web::Admin::PhotosController < Web::Admin::ApplicationController
   end
 
   def create
-    @photo = Photo.new(params[:photo])
+    p_attr = params[:photo]
+    p_attr[:file] = params[:photo][:file].first if params[:photo][:file].class == Array
+
+    @photo = Photo.new(p_attr)
     @photo.title = params[:photo][:file].original_filename.split('.')[0]
 
     respond_to do |format|

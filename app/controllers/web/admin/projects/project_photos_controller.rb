@@ -31,6 +31,10 @@ class Web::Admin::Projects::ProjectPhotosController < Web::Admin::Projects::Appl
   end
 
   def create
+    p_attr = params[:project_photo]
+    p_attr[:image] = params[:project_photo][:image].first if params[:project_photo][:image].class == Array
+
+
     @upload = Project::Photo.new(params[:project_photo])
     @upload.title = params[:project_photo][:image].original_filename.split('.')[0]
 
